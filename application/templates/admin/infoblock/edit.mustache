@@ -1,0 +1,45 @@
+<div class="spcForm">
+    <!-- Breadcrumds -->
+    <div class="state">
+        <h2>Редактирование блока</h2>
+        Записи: <b>Блоки информации</b>
+        &nbsp; / &nbsp; Запись: <b>{{#cur_infoblock}}{{name}}{{/cur_infoblock}}</b>
+    </div>
+    <!-- /Breadcrumds -->
+
+
+    <form id="editBlockForm" name="editBlockForm" method="post" action="">
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="#" title="сохранить" class="save_infoblock"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+            </div>
+        </div>
+
+        {{#cur_infoblock}}
+        <div class="formFieldsWarapper">
+            <div class="fieldWrapper">
+                <div class="eLabel">Идентификатор записи:</div>
+                <div class="efText">
+                    <input type="text" name="sid" id="sid" size="50" value="{{#cur_infoblock}}{{id}}{{/cur_infoblock}}" disabled/>
+                    <input type="hidden" name="id" id="id" value="{{#cur_infoblock}}{{id}}{{/cur_infoblock}}"/>
+                </div>
+            </div>
+            <div class="fieldWrapper odd">
+                <div class="eLabel">Содержание:</div>
+                <div class="efMulti">
+                    <textarea style="width:100%" name="content" id="content"{{#wysiwyg}} class="ckeditor"{{/wysiwyg}}>{{{content}}}</textarea>
+                </div>
+            </div>
+        </div>
+        {{/cur_infoblock}}
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="#" title="сохранить" class="save_infoblock"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+            </div>
+        </div>
+
+    </form>
+
+</div>

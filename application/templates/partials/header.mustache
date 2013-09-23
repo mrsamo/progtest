@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <title>{{title}}</title>
+        <meta name="keywords" content="{{keywords}}">
+        <meta name="description" content="{{description}}">
+        <link rel="icon" href="/images/frontend/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/images/frontend/favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="/css/normalize.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="/css/vendor/jquery-ui.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="/css/vendor/qaptcha.jquery.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection">
+    </head>
+
+    <body>
+        <div class="l-wrapper">
+            <header class="l-header">
+                <div class="l-header-content">
+                    <div class="l-header-content-col1">
+                        {{#is_front}}<div class="b-logo"></div>{{/is_front}}
+                        {{^is_front}}<a href="/" class="b-logo"></a>{{/is_front}}
+                    </div>
+                    <div class="l-header-content-col2">
+                        <nav class="b-header-contacts">
+                            <a href="#feedback-popup" class="e-popup-trigger b-header-contacts-item b-header-contacts-item_pseudo">
+                                <span class="b-header-contacts-item-icon b-header-contacts-item-icon_msg"></span>
+                                <span class="b-header-contacts-item-text">Написать нам</span>
+                            </a>
+                            <span class="b-header-contacts-divider"></span>
+                            <a href="#callback-popup" class="e-popup-trigger b-header-contacts-item b-header-contacts-item_pseudo">
+                                <span class="b-header-contacts-item-icon b-header-contacts-item-icon_call"></span>
+                                <span class="b-header-contacts-item-text">Заказать звонок</span>
+                            </a>
+                            <span class="b-header-contacts-divider"></span>
+                            <a href="/content/contacts" class="b-header-contacts-item">
+                                <span class="b-header-contacts-item-icon b-header-contacts-item-icon_cntcts"></span>
+                                <span class="b-header-contacts-item-text">Контакты</span>
+                            </a>
+                        </nav>
+                        {{#header_phone_block}}
+                        <div class="b-header-phone">
+                            {{#code}}<sup class="b-header-phone-code">({{code}})</sup>{{/code}}
+                            {{phone}}
+                        </div>
+                        {{/header_phone_block}}
+                    </div>
+                </div>
+                <div class="l-main-menu">
+                    {{>top-menu}}
+                </div>
+            </header>

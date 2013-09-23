@@ -1,0 +1,67 @@
+<div class="spcGrid">
+    <!-- Breadcrumds -->
+    <div class="state">
+	<h2>{{menu_head}}</h2>
+	Записи: <b>{{menu_head}}</b>
+	&nbsp; / &nbsp; Записи: <b><все></b>
+    </div>
+    <!-- /Breadcrumds -->
+
+    <form id="bannersForm" name="bannersForm" method="post" action="">
+
+	<div class="toolBar">
+	    <div class="toolBarContainer">
+		<a href="/admin/banner/add" title="создать баннер" class="btMajor"><img src="{{image_path}}add.png" alt="[создать баннер]"><span>Новый</span></a>
+	    </div>
+	    <div class="toolBarContainer count" style="float:right">
+		<span class="btDumb">Записей: <b>{{banners_count}}</b></span>
+	    </div>
+	</div>
+
+	<!-- Table Grid -->
+	<table width="100%" cellpadding="0" cellspacing="1">
+	    <tr>
+		<th class="actionCol">Действия</th>
+		<th class="orderCol">Тип</th>
+		<th style="text-align:left">Баннер</th>
+		<th style="text-align:left;width:120px">Ссылка</th>
+	    </tr>
+	    {{#banners}}
+	    <tr{{#even}} class="odd"{{/even}}>
+		<td class="actionCol" valign="top" nowrap>
+		    <a href="/admin/banner/edit/{{id}}" title="изменить"><img src="{{image_path}}edit.png" alt="изменить" /></a>
+		    <a href="#" title="удалить" class="delete_banner" rel="{{id}}"><img alt="удалить" src="{{image_path}}delete.png"></a>
+		</td>
+		<td class="orderCol" valign="top">
+		    {{type_word}}
+		</td>
+		<td>
+		    {{{source}}}
+		</td>
+		<td valign="top">
+		    {{link}}
+		</td>
+	    </tr>
+	    {{/banners}}
+	</table>
+	<!-- /Table Grid -->
+
+	{{!Если нет баннеров - выводим сообщение}}
+	{{^banners_count}}
+	<div class="empty">[ нет баннеров ]</div>
+	{{/banners_count}}
+
+	<div class="toolBar">
+	    <div class="toolBarContainer">
+		<a href="/admin/banner/add" title="создать баннер" class="btMajor"><img src="{{image_path}}add.png" alt="[создать баннер]"><span>Новый</span></a>
+	    </div>
+	    <div class="toolBarContainer count" style="float:right">
+		<span class="btDumb">Записей: <b>{{banners_count}}</b></span>
+	    </div>
+	</div>
+
+	<input type="hidden" name="work_id" id="work_id" value="0"/>
+	<input type="hidden" name="action" id="action" value="0"/>
+    </form>
+
+</div>

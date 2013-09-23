@@ -1,0 +1,44 @@
+<div class="b-popup" id="reqviewer-popup">
+    <div class="b-popup-title">Заявка на осмотр</div>
+    <div class="b-popup-close"></div>
+    <form name="reqviewer-form" id="reqviewer-form" method="POST" class="b-feedback">
+        <div class="b-feedback-row">
+            <input type="text" name="fio" id="fio" value="" placeholder="ФИО*">
+        </div>
+        <div class="b-feedback-row">
+            <input type="text" name="phone" id="phone" value="" placeholder="Телефон*">
+        </div>
+        <div class="b-feedback-row">
+            <input type="text" name="view_date" id="view_date" value="" placeholder="Удобная дата*" readonly>
+        </div>
+        <div class="b-feedback-row">
+            <select name="view_time" id="view_time" class="b-form-select_reqviewer">
+                <option value="" selected>Удобное время*</option>
+                <option value="Утро">Утро</option>
+                <option value="День">День</option>
+                <option value="Вечер">Вечер</option>
+            </select>
+        </div>
+        <div class="b-feedback-row">
+            <textarea name="comment" id="comment" placeholder="Комментарий"></textarea>
+        </div>
+        <div class="b-feedback-agree">
+            <label><input type="checkbox" name="agree_private" id="agree_private" class="e-nice-checkbox"> Я согласен на предоставление своих личных данных</label>
+        </div>
+        <div class="b-feedback-captcha">
+            <div class="feedback-qaptcha qaptcha"></div>
+        </div>
+        <div class="b-feedback-submit">
+            <input type="submit" name="reqviewer-submit" id="reqviewer-submit" value="Отправить запрос">
+            <div class="b-process-feedback" id="process-reqviewer">Отправляется запрос...</div>
+            <div class="b-success-feedback" id="success-reqviewer">
+                <p>Запрос успешн отправлен</p>
+                <p>Форма закроется автоматически</p>
+            </div>
+        </div>
+        {{#product}}
+        <input type="hidden" name="catalog_id" id="catalog_id" value="{{id}}">
+        <input type="hidden" name="object_data" id="object_data" value="Тип: {{#grandparent}}{{name}}, {{/grandparent}}{{#parent}}{{name}}{{/parent}};Объект: {{name}};Цена: {{price}} руб.;Адрес: г.{{city}}{{#tract}}, {{tract}}{{/tract}}{{#street}}, ул.{{street}}{{/street}}{{#house}}, д.{{house}}{{/house}}{{#corps}}, корп.{{corps}}{{/corps}}">
+        {{/product}}
+    </form>
+</div>

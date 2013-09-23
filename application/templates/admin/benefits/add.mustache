@@ -1,0 +1,94 @@
+<div class="spcForm">
+    <!-- Breadcrumds -->
+    <div class="state">
+        <h2>{{#editable}}Редактирование преимущества{{/editable}}{{^editable}}Создание преимущества{{/editable}}</h2>
+        Записи: <b>{{menu_head}}</b>
+        {{#editable}}
+        &nbsp; / &nbsp; Запись: <b>{{#cur_benefit}}ID #{{id}}{{/cur_benefit}}</b>
+        {{/editable}}
+        {{^editable}}
+        &nbsp; / &nbsp; Запись: <b><новая></b>
+        {{/editable}}
+    </div>
+    <!-- /Breadcrumds -->
+
+
+    <form id="addBenefitForm" name="addBenefitForm" method="post" action="{{^editable}}/admin/benefits{{/editable}}" enctype="multipart/form-data">
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="#" title="сохранить" class="save-benefit"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+            </div>
+            <div class="toolBarContainer">
+                <a href="/admin/benefits" title="завершить без сохранения" class="btNeutral"><img src="{{image_path}}up1.png" alt="[завершить без сохранения]"/><span>Вернуться назад</span></a>
+            </div>
+        </div>
+
+        <div id="error1">
+            <span>При заполнении формы были допущены следующие ошибки:</span>
+            <ul></ul>
+        </div>
+
+        <div class="formFieldsWarapper">
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Идентификатор записи:</div>
+                <div class="efText">
+                    <input type="text" name="auto_id" id="auto_id" size="50" value="{{#editable}}{{#cur_benefit}}{{id}}{{/cur_benefit}}{{/editable}}{{^editable}}&lt;auto&gt;{{/editable}}" disabled/>
+                    <input type="hidden" name="id" id="id" value="{{#editable}}{{#cur_benefit}}{{id}}{{/cur_benefit}}{{/editable}}">
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Показывать на сайте*:</div>
+                <div class="efChoice">
+                    <select name="status" id="status">
+                        <option value="0">Нет</option>
+                        <option value="1"{{#editable}}{{#cur_benefit}}{{#status}} selected{{/status}}{{/cur_benefit}}{{/editable}}>Да</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Заголовок*:</div>
+                <div class="efMulti">
+                    <input type="text" name="title" id="title" size="50" value="{{#editable}}{{#cur_benefit}}{{title}}{{/cur_benefit}}{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Текст*:</div>
+                <div class="efMulti">
+                    <textarea name="content" id="content" style="width:100%">{{#editable}}{{#cur_benefit}}{{content}}{{/cur_benefit}}{{/editable}}</textarea>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Изображение (формат файла: <b>jpg</b>, <b>png</b> или <b>gif</b>):</div>
+                <div class="efImage">
+                    <input name="image" id="image" type="file" size="50"/>
+                    {{!Если идет редактирование и есть изображение - выводим его и чекбокс для удаления}}
+                    {{#editable}}
+                    {{#cur_benefit}}
+                    {{#image}}
+                    <img src="/{{benefits_image_path}}{{image}}">
+                    <input name="del_image" id="del_image" type="checkbox" class="checkbox"/> Удалить при сохранении
+                    {{/image}}
+                    {{/cur_benefit}}
+                    {{/editable}}
+                </div>
+            </div>
+        </div>
+
+        <div id="error2">
+            <span>При заполнении формы были допущены ошибки. Список ошибок можно увидеть в начале страницы.</span>
+        </div>
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="#" title="сохранить" class="save-benefit"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+            </div>
+            <div class="toolBarContainer">
+                <a href="/admin/benefits" title="завершить без сохранения" class="btNeutral"><img src="{{image_path}}up1.png" alt="[завершить без сохранения]"/><span>Вернуться назад</span></a>
+            </div>
+        </div>
+
+        <input type="hidden" name="action" id="action" value="{{#editable}}update{{/editable}}{{^editable}}create{{/editable}}">
+    </form>
+
+</div>

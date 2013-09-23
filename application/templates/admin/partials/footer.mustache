@@ -1,0 +1,41 @@
+<div class="clear">&nbsp;</div>
+
+<div class="header rel" style="margin:0">
+    <div class="stats" style='border:none'>
+        <div class="sitedef"><a href="/admin/">{{site_name}}</a></div>
+        <br style="clear:both" />
+        <div>Панель управления</div>
+    </div>
+    <div class="manage abs">
+        <a href="/admin/exit" title="Выйти из системы"><img src="{{image_path}}logout.png" alt="Выйти из системы" /><span>Выход</span></a>
+        <a href="../doc/user_manual.pdf" class="delim" title="Справка" target="_blank"><img src="{{image_path}}help.png" alt="Справка" /><span>Справка</span></a>
+        <a href="/" title="Открыть сайт" target="_blank"><img src="{{image_path}}site_open.png" alt="Открыть сайт" /><span>На сайт</span></a>
+        <a href="/admin" title="Вернуться в начало"><img src="{{image_path}}home.png" alt="Вернуться в начало" /><span>В начало</span></a>
+    </div>
+</div>
+</div>
+
+{{#message_data}}
+<div id="jGrowl" class="top-right jGrowl">
+    <div class="message{{#error}} error{{/error}}">{{text}}</div>
+</div>
+{{/message_data}}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+<script>(('ui' in jQuery) && jQuery.ui && ('version' in jQuery.ui)) || document.write('<script src="/js/vendor/jquery-ui-1.8.23.min.js"><\/script>')</script>
+<script src="/js/vendor/jquery.validate.js" type="text/javascript"></script>
+<script src="{{js_path}}admin.js" type="text/javascript"></script>
+<script src="{{js_path}}content.js" type="text/javascript"></script>
+<script src="{{js_path}}infoblocks.js" type="text/javascript"></script>
+<script src="{{js_path}}catalog.js" type="text/javascript"></script>
+<script src="{{js_path}}news.js" type="text/javascript"></script>
+<script src="{{js_path}}banner.js" type="text/javascript"></script>
+<script src="{{js_path}}benefits.js" type="text/javascript"></script>
+<script src="{{js_path}}feedback.js" type="text/javascript"></script>
+
+<script src="{{js_path}}datepicker/jquery.ui.widget.js" type="text/javascript"></script>
+<script src="{{js_path}}datepicker/jquery.ui.datepicker.js" type="text/javascript"></script>
+<script src="{{js_path}}datepicker/jquery.ui.datepicker-ru.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+        <title>{{site_name}} :: {{title}}</title>
+        <script src="{{packages_path}}ckeditor/ckeditor.js" type="text/javascript"></script>
+        <link rel="icon" href="/images/frontend/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/images/frontend/favicon.ico" type="image/x-icon">
+            <link href="{{css_path}}style.css" rel="stylesheet" type="text/css">
+                <link href="{{css_path}}jquery.jgrowl.css" rel="stylesheet" type="text/css">
+                    <link rel="stylesheet" href="/css/vendor/jquery-ui.css" type="text/css" media="screen, projection">
+
+                        </head>
+                        <body>
+
+                            <div class="centered">
+                                <img src="{{image_path}}ajax-loader.gif" alt="indication"/>
+                            </div>
+                            <div id="all">
+                                <div class="header rel">
+                                    <div class="logo" style="border:none">
+                                        <div class="sitedef"><a href="/admin/">{{site_name}}</a></div>
+                                        <br style="clear:both" />
+                                        <div>Панель управления</div>
+                                    </div>
+                                    <div class="stats">
+                                        <p>Пользователь: &nbsp; <img src="{{image_path}}user1.png" alt="userpic" /> <span>{{#user}}{{name}}{{/user}} ({{#role}}{{description}}{{/role}})</span></p>
+                                        <p>Время сервера: &nbsp; <span>{{datetime}}</span></p> 
+                                    </div>
+                                    <div class="manage abs">
+                                        <a href="/admin/exit" title="Выйти из системы"><img src="{{image_path}}logout.png" alt="Выйти из системы" /><span>Выход</span></a>
+                                        <a href="/doc/user_manual.pdf" class="delim" title="Справка" target="_blank"><img src="{{image_path}}help.png" alt="Справка" /><span>Справка</span></a>
+                                        <a href="/" title="Открыть сайт" target="_blank"><img src="{{image_path}}site_open.png" alt="Открыть сайт" /><span>На сайт</span></a>
+                                        <a href="/admin" title="Вернуться в начало"><img src="{{image_path}}home.png" alt="Вернуться в начало" /><span>В начало</span></a>
+                                    </div>
+                                </div>

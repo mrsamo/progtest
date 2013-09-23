@@ -1,0 +1,43 @@
+<div class="spcForm">
+    <!-- Breadcrumds -->
+    <div class="state">
+        <h2>{{menu_head}}</h2>
+        Записи: <b>Настройки</b>
+    </div>
+    <!-- /Breadcrumds -->
+
+    <form id="settings_reqbuy_form" name="settings_reqbuy_form" method="post" action="">
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="#" title="сохранить" class="save-feedback-settings"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+            </div>
+        </div>
+
+        <div id="error1">
+            <span>При заполнении формы были допущены следующие ошибки:</span>
+            <ul></ul>
+        </div>
+
+        <div class="formFieldsWarapper">
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Email для получения запросов*:</div>
+                <div class="efText">
+                    <input type="text" name="reqbuy_email" id="reqbuy_email" size="50" value="{{reqbuy_email}}" />
+                </div>
+            </div>
+        </div>
+
+        <div id="error2">
+            <span>При заполнении формы были допущены ошибки. Список ошибок можно увидеть в начале страницы.</span>
+        </div>
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="#" title="сохранить" class="save-feedback-settings"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+            </div>
+        </div>
+        <input type="hidden" name="action" id="action" value="settings">
+    </form>
+
+</div>

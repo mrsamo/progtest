@@ -1,0 +1,27 @@
+{{#related_exists}}
+<div class="b-linked-products">
+    <h2 class="b-linked-products__title">
+        <a href="/equipment/{{related_category}}" target="_blank">Сопутствующая продукция</a>
+    </h2>
+    <div class="b-products-carousel">
+        <div class="b-products-carousel__clip">
+            <div class="b-products-carousel__items">
+                {{#related_categories}}
+                <a href="/equipment/{{id}}" target="_blank" class="b-products-carousel__items__item">
+                    <span class="b-products-carousel__items__item__image">
+                        <img alt="" class="b-products-carousel__items__item__image__img" src="{{main_images_dir}}{{image}}">
+                    </span>
+                    <span class="b-products-carousel__items__item__title">
+                        <span>{{name}}</span>
+                    </span>
+                </a>
+                {{/related_categories}}
+            </div>
+        </div>
+        {{#related_categories_control}}
+        <div class="b-products-carousel__action b-products-carousel__action_prev"></div>
+        <div class="b-products-carousel__action b-products-carousel__action_next"></div>
+        {{/related_categories_control}}
+    </div>
+</div>
+{{/related_exists}}

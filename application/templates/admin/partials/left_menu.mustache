@@ -1,0 +1,30 @@
+{{#modules_menu}}
+<div class="menu">
+    <h3>{{name}}</h3>
+    <ul style="margin-left:-1.2em;">
+        {{!Первый уровень пунктов меню модуля}}
+        {{#items}}
+        <li><span><a href="{{url}}"{{#active_root}} class="current"{{/active_root}}>{{#hav_sub_items}}<em class="marker{{#open_root}} open{{/open_root}}"></em>{{/hav_sub_items}}{{name}}</a></span>
+            {{!Второй уровень пунктов меню модуля}}
+            <ul>
+                {{#sub_items}}
+                <li><span><a href="{{url}}"{{#active}} class="current"{{/active}}>{{#hav_sub_items2}}<em class="marker{{#open}} open{{/open}}"></em>{{/hav_sub_items2}}{{name}}</a></span>
+                    <ul>
+                        {{#sub_items2}}
+                        <li class="last"><span><a href="{{url}}"{{#active2}} class="current"{{/active2}}>{{#hav_sub_items3}}<em class="marker{{#open}} open{{/open}}"></em>{{/hav_sub_items3}}{{name}}</a></span>
+                            <ul>
+                                {{#sub_items3}}
+                                <li{{#last}} class="last"{{/last}}><span><a href="{{url}}"{{#active3}} class="current"{{/active3}}>{{name}}</a></span></li>
+                                {{/sub_items3}}
+                            </ul>
+                        </li>
+                        {{/sub_items2}}
+                    </ul>
+                </li>
+                {{/sub_items}}
+            </ul>
+        </li>
+        {{/items}}
+    </ul>
+</div>
+{{/modules_menu}}

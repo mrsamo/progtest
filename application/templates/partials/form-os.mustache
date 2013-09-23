@@ -1,0 +1,32 @@
+<div class="b-popup" id="feedback-popup">
+    <div class="b-popup-title">Сообщение</div>
+    <div class="b-popup-close"></div>
+    <form name="feedback-form" id="feedback-form" method="POST" class="b-feedback">
+        <div class="b-feedback-row">
+            <input type="text" name="fio" id="fio" value="" placeholder="ФИО*">
+        </div>
+        <div class="b-feedback-row">
+            <input type="text" name="phone" id="phone" value="" placeholder="Телефон*">
+        </div>
+        <div class="b-feedback-row">
+            <input type="text" name="email" id="email" value="" placeholder="Email">
+        </div>
+        <div class="b-feedback-row">
+            <textarea name="message" id="message" placeholder="Сообщение*"></textarea>
+        </div>
+        <div class="b-feedback-agree">
+            <label><input type="checkbox" name="agree_private" id="agree_private" class="e-nice-checkbox"> Я согласен на предоставление своих личных данных</label>
+        </div>
+        <div class="b-feedback-captcha">
+            <div class="feedback-qaptcha qaptcha"></div>
+        </div>
+        <div class="b-feedback-submit">
+            <input type="submit" name="feedback-submit" id="feedback-submit" value="Отправить запрос">
+            <div class="b-process-feedback" id="process-feedback">Отправляется запрос...</div>
+            <div class="b-success-feedback" id="success-feedback">
+                <p>Сообщение успешно отправлено</p>
+                <p>Форма закроется автоматически</p>
+            </div>
+        </div>
+    </form>
+</div>

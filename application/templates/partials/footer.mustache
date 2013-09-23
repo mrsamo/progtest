@@ -1,0 +1,51 @@
+<footer class="l-footer">
+    <div class="l-footer-content">
+        <div class="l-footer-content-col1">
+            <div class="b-copyrights"><mark>&copy;{{year}}</mark> {{footer_copyright_block}}</div>
+            <div class="b-counter">
+                {{{footer_counters_block}}}
+            </div>
+        </div>
+        <div class="l-footer-content-col2">
+            <div class="b-footer-contacts">
+                <div class="b-footer-contacts-row">
+                    <span>Адрес:</span> {{footer_address_block}}
+                </div>
+                <div class="b-footer-contacts-row">
+                    <span>Телефон:</span> {{footer_phone_block}}
+                </div>
+            </div>
+        </div>
+        <div class="l-footer-content-col3">
+            <a href="http://siteactiv.ru" class="b-developer">Разработка сайта</a>
+        </div>
+    </div>
+</footer>
+<div class="b-overlay" id="overlay"></div>
+{{>form-os}}
+{{>form-callback}}
+{{#is_product}}
+{{>form-viewer}}
+{{>form-exchange}}
+{{/is_product}}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+<script>(('ui' in jQuery) && jQuery.ui && ('version' in jQuery.ui)) || document.write('<script src="/js/vendor/jquery-ui-1.8.23.min.js"><\/script>')</script>
+<script src="/js/vendor/jquery.nicecheckbox.js"></script>
+<script src="/js/vendor/jquery.niceradio.js"></script>
+<script src="/js/vendor/jquery.selectBox.js"></script>
+<script src="/js/vendor/jquery.placeholder.js"></script>
+<script src="/js/vendor/qaptcha.jquery.js"></script>
+<script src="/js/vendor/jquery.maskedinput.min.js"></script>
+<script src="/js/vendor/jquery.validate.js"></script>
+{{#is_product}}
+<script src="/js/admin/datepicker/jquery.ui.widget.js" type="text/javascript"></script>
+<script src="/js/admin/datepicker/jquery.ui.datepicker.js" type="text/javascript"></script>
+<script src="/js/admin/datepicker/jquery.ui.datepicker-ru.js" type="text/javascript"></script>
+{{/is_product}}
+<script src="/js/main.js"></script>
+<script src="/js/feedback.js"></script>
+{{#is_catalog}}<script src="/js/catalog.js"></script>{{/is_catalog}}
+</body>
+</html>

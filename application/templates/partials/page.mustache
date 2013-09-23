@@ -1,0 +1,20 @@
+<div class="b-container">
+    <div class="b-content">
+        <div class="l-2col">
+            <div class="l-2col__col1">
+                {{>catalog-menu}}
+                <div class="b-service-center-container">
+                    <div class="b-service-center">
+                        {{{service_center_block}}}
+                    </div>
+                </div>
+            </div>
+            <div class="l-2col__col2">
+                {{>content}}
+            </div>
+        </div>
+        {{#related_category}}
+        {{>related-categories}}
+        {{/related_category}}
+    </div>
+</div>

@@ -1,0 +1,17 @@
+На сайте был оформлен заказ
+- - - - - - - - - - -
+Список товаров:
+{{products}}.
+- - - - - - - - - - -
+Сумма заказа: {{cost}} руб
+- - - - - - - - - - -
+Нужна доставка: {{#need_delivery}}да{{/need_delivery}}{{^need_delivery}}нет{{/need_delivery}}
+- - - - - - - - - - -
+Данные пользователя:
+Имя: {{fio}}
+Компания: {{#company}}{{company}}{{/company}}{{^company}}-{{/company}}
+Телефон: {{phone}}
+Email: {{#email}}{{email}}{{/email}}{{^email}}-{{/email}}
+Адрес: {{#address}}{{address}}{{/address}}{{^address}}-{{/address}}
+- - - - - - - - - - -
+{{date}}

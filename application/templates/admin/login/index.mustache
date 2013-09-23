@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/xml; charset=utf-8" />
+        <title>{{title}}</title>
+        <link href="{{css_path}}style.css" rel="stylesheet" type="text/css" />
+        <style>
+            html,body {margin:0; padding:0; height:88%; font-family:Verdana}
+        </style>
+    </head>
+    <body>
+
+        <table width="100%" height="100%">
+            <tr>
+                <td valign="middle" align="center">
+                    <form name="authForm" id="authForm" method="post" action="">
+                        <input type="hidden" name="authSubmit" value="">
+                        <div style="width:400px">
+                            <div class="clear"></div>
+                            <div class="loginForm">
+                                <h3>{{site_name}}</h3>
+                                <div class="center">
+                                    <div class="input">
+                                        <label for="name">Логин</label><br />
+                                        <input type="text" name="login" id="login" value="" />
+                                    </div>
+                                    <div class="input">
+                                        <label for="password">Пароль</label><br />
+                                        <input type="password" name="password" id="password" />			
+                                    </div>
+                                    <input type="submit" name="submit" class="loginSbm" value="Войти">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </table>
+
+    </body>
+</html>

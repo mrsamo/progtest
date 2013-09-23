@@ -1,0 +1,21 @@
+<div class="b-works-gallery">
+    <h2 class="b-works-gallery__title"><a href="/gallery">Фотогалерея</a></h2>
+    {{#photos_exists}}
+    {{#photos}}
+    {{#first}}
+    <div class="b-works-gallery__main-image">
+        <a href="/gallery/album/{{album_id}}"><img alt="" class="b-works-gallery__main-image__img" src="{{album_images_dir}}{{image}}" width="239"></a>
+    </div>
+    {{/first}}
+    {{/photos}}
+    <div class="b-works-gallery__images">
+        {{#photos}}
+        {{^first}}
+        <a href="/gallery/album/{{album_id}}" class="b-works-gallery__images__item">
+            <img alt="" class="b-works-gallery__images__item__img" src="{{thumb_images_dir}}{{image}}" width="77">
+        </a>
+        {{/first}}
+        {{/photos}}
+    </div>
+    {{/photos_exists}}
+</div>

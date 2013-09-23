@@ -1,0 +1,27 @@
+{{#slides_exists}}
+<div class="b-carousel">
+    <div class="b-carousel__clip">
+        <div class="b-carousel__items">
+            {{#slides}}
+            <div class="b-carousel__items__item">
+                {{#link}}<a href="{{link}}" target="_blank">{{/link}}<img alt="{{text}}" class="b-carousel__items__item__back" src="{{slider_images_dir}}{{image}}">{{#link}}</a>{{/link}}
+                <div class="b-carousel__items__item__text">
+                    {{{text}}}
+                </div>
+            </div>
+            {{/slides}}
+        </div>
+    </div>
+    {{^slide_one}}
+    <div class="b-carousel__selector">
+        {{#slides}}
+        <span class="b-carousel__selector__item{{#act}} b-carousel__selector__item_active{{/act}}"></span>
+        {{/slides}}
+    </div>
+    {{/slide_one}}
+    <div class="b-carousel-shadow"><div><div></div></div></div>
+</div>
+{{/slides_exists}}
+{{^slides_exists}}
+<p>&nbsp;</p>
+{{/slides_exists}}

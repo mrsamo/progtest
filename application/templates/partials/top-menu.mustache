@@ -1,0 +1,11 @@
+<nav class="b-main-menu">
+    {{#menu}}
+    <a href="/{{url}}" class="b-main-menu-item">
+        <span class="b-main-menu-item-icon b-main-menu-item-icon_{{icon}}"></span>
+        <span class="b-main-menu-item-content">
+            {{{name}}}
+        </span>
+    </a>
+    {{^last}}<span class="b-main-menu-divider"></span>{{/last}}
+    {{/menu}}
+</nav>

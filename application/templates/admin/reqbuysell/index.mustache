@@ -1,0 +1,69 @@
+<div class="spcGrid">
+    <!-- Breadcrumds -->
+    <div class="state">
+        <h2>{{menu_head}}</h2>
+        Записи: <b>{{menu_head}}</b>
+        &nbsp; / &nbsp; Записи: <b><все></b>
+    </div>
+    <!-- /Breadcrumds -->
+
+    <form id="reqbuysellForm" name="reqbuysellForm" method="post" action="">
+
+        <div class="toolBar">
+            <div class="toolBarContainer count" style="float:right">
+                <span class="btDumb">Записей: <b>{{reqbuysell_count}}</b></span>
+            </div>
+        </div>
+
+        <!-- Table Grid -->
+        <table width="100%" cellpadding="0" cellspacing="1">
+            <tr>
+                <th class="orderCol">#</th>
+                <th style="text-align:left">ФИО</th>
+                <th style="text-align:left">Телефон</th>
+                <th style="text-align:left">Предложение</th>
+                <th style="text-align:left">Объект</th>
+                <th style="text-align:left">Дата отправки</th>
+            </tr>
+            {{#reqbuysells}}
+            <tr{{#even}} class="odd"{{/even}}>
+                <td class="orderCol" valign="top">
+                    <a href="#" title="удалить" class="delete-row" rel="{{id}}"><img alt="удалить" src="{{image_path}}delete.png"></a>
+                </td>
+                <td valign="top">
+                    {{fio}}
+                </td>
+                <td valign="top">
+                    {{phone}}
+                </td>
+                <td valign="top">
+                    {{#offer_type}}{{offer_type}}{{/offer_type}}{{^offer_type}}-{{/offer_type}}
+                </td>
+                <td valign="top">
+                    {{#object_type}}<b>Объект:</b> {{object_type}}<br>{{/object_type}}
+                    <b>Описание:</b> {{object_data}}
+                </td>
+                <td valign="top">
+                    {{human_date}}
+                </td>
+            </tr>
+            {{/reqbuysells}}
+        </table>
+        <!-- /Table Grid -->
+
+        {{!Если нет сообщений - выводим сообщение}}
+        {{^reqbuysell_count}}
+        <div class="empty">[ нет запросов ]</div>
+        {{/reqbuysell_count}}
+
+        <div class="toolBar">
+            <div class="toolBarContainer count" style="float:right">
+                <span class="btDumb">Записей: <b>{{reqbuysell_count}}</b></span>
+            </div>
+        </div>
+
+        <input type="hidden" name="work_id" id="work_id" value="0"/>
+        <input type="hidden" name="action" id="action" value="0"/>
+    </form>
+
+</div>

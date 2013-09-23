@@ -1,0 +1,92 @@
+<div class="b-promo">
+    <div class="b-promo-pages">
+        <div class="b-promo-pages-item" id="village" style="display: block;">
+            <div class="b-slider">
+                <div class="b-slider-clip">
+                    {{#hot_country_exists}}
+                    <div class="b-slider-items{{^hot_country_over3}} b-slider-items_less3{{/hot_country_over3}}">
+                        {{#hot_country}}
+                        <a href="/catalog/view/{{id}}" class="b-slider-items-item">
+                            <img alt="{{name}}" class="b-slider-items-item-back" src="/{{cat_images_dir}}{{image}}">
+                            {{#hypothec_status}}<span class="b-slider-items-item-icon b-slider-items-item-icon_mortgage"></span>{{/hypothec_status}}
+                            <span class="b-slider-items-item-desc">
+                                {{name}}<br>
+                                {{#tract}}{{tract}}{{/tract}}
+                            </span>
+                        </a>
+                        {{/hot_country}}
+                    </div>
+                    {{/hot_country_exists}}
+                    {{^hot_country_exists}}
+                    <div class="b-slider-items b-slider-items_less3 b-slider-items_empty">Горящие предложения пока отсутствуют</div>
+                    {{/hot_country_exists}}
+                </div>
+                {{#hot_country_over3}}
+                <div class="b-slider-action b-slider-action_prev"></div>
+                <div class="b-slider-action b-slider-action_next"></div>
+                {{/hot_country_over3}}
+            </div>
+        </div>
+        <div class="b-promo-pages-item" id="city">
+            <div class="b-slider">
+                <div class="b-slider-clip">
+                    {{#hot_city_exists}}
+                    <div class="b-slider-items{{^hot_city_over3}} b-slider-items_less3{{/hot_city_over3}}">
+                        {{#hot_city}}
+                        <a href="/catalog/view/{{id}}" class="b-slider-items-item">
+                            <img alt="{{name}}" class="b-slider-items-item-back" src="/{{cat_images_dir}}{{image}}">
+                            {{#hypothec_status}}<span class="b-slider-items-item-icon b-slider-items-item-icon_mortgage"></span>{{/hypothec_status}}
+                            <span class="b-slider-items-item-desc">
+                                {{name}}<br>
+                                г.{{city}}{{#street}}, ул.{{street}}{{/street}}
+                            </span>
+                        </a>
+                        {{/hot_city}}
+                    </div>
+                    {{/hot_city_exists}}
+                    {{^hot_city_exists}}
+                    <div class="b-slider-items b-slider-items_less3 b-slider-items_empty">Горящие предложения пока отсутствуют</div>
+                    {{/hot_city_exists}}
+                </div>
+                {{#hot_city_over3}}
+                <div class="b-slider-action b-slider-action_prev"></div>
+                <div class="b-slider-action b-slider-action_next"></div>
+                {{/hot_city_over3}}
+            </div>
+        </div>
+        <div class="b-promo-pages-item" id="commerce">
+            <div class="b-slider">
+                <div class="b-slider-clip">
+                    {{#hot_commercial_exists}}
+                    <div class="b-slider-items{{^hot_commercial_over3}} b-slider-items_less3{{/hot_commercial_over3}}">
+                        {{#hot_commercial}}
+                        <a href="/catalog/view/{{id}}" class="b-slider-items-item">
+                            <img alt="{{name}}" class="b-slider-items-item-back" src="/{{cat_images_dir}}{{image}}">
+                            <span class="b-slider-items-item-desc">
+                                {{name}}<br>
+                                г.{{commercial}}{{#street}}, ул.{{street}}{{/street}}
+                            </span>
+                        </a>
+                        {{/hot_commercial}}
+                    </div>
+                    {{/hot_commercial_exists}}
+                    {{^hot_commercial_exists}}
+                    <div class="b-slider-items b-slider-items_less3 b-slider-items_empty">Горящие предложения пока отсутствуют</div>
+                    {{/hot_commercial_exists}}
+                </div>
+                {{#hot_commercial_over3}}
+                <div class="b-slider-action b-slider-action_prev"></div>
+                <div class="b-slider-action b-slider-action_next"></div>
+                {{/hot_commercial_over3}}
+            </div>
+        </div>
+    </div>
+    <div class="b-promo-menu">
+        <div class="b-promo-menu-items">
+            <a href="#village" class="b-promo-menu-items-item b-promo-menu-items-item_active" data-scope="1">Загородная недвижимость</a>
+            <a href="#city" class="b-promo-menu-items-item" data-scope="2">Городская недвижимость</a>
+            <a href="#commerce" class="b-promo-menu-items-item" data-scope="3">Коммерческая недвижимость</a>
+        </div>
+        <a href="/catalog/1" class="b-promo-menu-action" id="promo-menu-action">Подобрать объект</a>
+    </div>
+</div>

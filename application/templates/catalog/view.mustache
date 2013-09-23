@@ -1,0 +1,37 @@
+{{#product}}
+<h1 class="b-page-title">{{name}}</h1>
+<div class="b-object-summary">
+    <div class="b-object-summary-cover">
+        {{#hypothec_status}}<span class="b-object-summary-cover-icon b-object-summary-cover-icon_mortgage"></span>{{/hypothec_status}}
+        <img alt="{{name}}" src="/{{cart_images_dir}}{{#image}}{{image}}{{/image}}{{^image}}no-photo.png{{/image}}" class="b-object-summary-cover-image">
+    </div>
+    <div class="b-object-summary-desc">
+        {{#virtour}}<a href="{{virtour}}" class="b-object-summary-desc-tour"><span>Виртуальный тур по объекту</span></a>{{/virtour}}
+        <a href="#reqviewer-popup" class="e-popup-trigger b-object-summary-desc-order"><span>Заявка на осмотр</span></a>
+        <a href="#exchange-popup" class="e-popup-trigger b-object-summary-desc-exchange"><span>Предложить вариант на обмен</span></a>
+        <div class="b-object-summary-desc-price">
+            Цена: <span>{{price}}</span> руб.
+        </div>
+    </div>
+</div>
+<div class="b-object-desc">
+    <div class="b-object-desc-head">
+        <a href="#" class="b-object-desc-head-link b-object-desc-head-link_active" data-content-id="b-object-desc-data">Данные</a>
+        {{#map}}<a href="#" class="b-object-desc-head-link b-object-desc-head-link_map" data-content-id="b-object-desc-map">Показать на карте</a>{{/map}}
+    </div>
+    <div class="b-object-desc-content b-object-desc-content_active" id="b-object-desc-data">
+    {{#data}}{{{data}}}{{/data}}
+    {{^data}}<p>Данных нет</p>{{/data}}
+    </div>
+    {{#map}}
+    <div class="b-object-desc-content" id="b-object-desc-map">
+    {{{map}}}
+    </div>
+    {{/map}}
+</div>
+{{#content}}
+<div class="b-text-block">
+    {{{content}}}
+</div>
+{{/content}}
+{{/product}}

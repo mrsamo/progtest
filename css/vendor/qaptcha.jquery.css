@@ -1,0 +1,47 @@
+/*****************/
+/** QapTcha CSS **/
+/*****************/
+.qaptcha {
+    /*margin: 5px 0 15px 0;*/
+}
+.qaptcha .clr{clear:both}
+
+.qaptcha #bgSlider {
+    width:202px;
+    height:22px;
+    background:transparent url(/images/frontend/qaptcha-sprite.png) no-repeat 0 -22px;
+    float:left
+}
+
+.qaptcha #Slider {
+    width:48px;
+    height:22px;
+    background:transparent url(/images/frontend/qaptcha-sprite.png) no-repeat -32px 0;
+    cursor:e-resize
+}
+
+.qaptcha #Icons {
+    float:left;
+    width:16px;
+    height:16px;
+    background:transparent url(/images/frontend/qaptcha-sprite.png) no-repeat 0 0;
+    margin-top:3px;
+    margin-left:10px;
+}
+
+.qaptcha #TxtStatus {
+    /*width:202px;*/
+    margin-top:5px;
+    /*text-align:center;*/
+    font-size:11px;
+    clear:both
+}
+
+/** States **/
+.qaptcha .dropSuccess {
+    color: #568E2F;
+    padding: 0 0 0 17px;
+}
+.qaptcha .dropError {
+    color: #bb2828;
+}

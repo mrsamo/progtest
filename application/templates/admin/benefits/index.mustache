@@ -1,0 +1,72 @@
+<div class="spcGrid">
+    <!-- Breadcrumds -->
+    <div class="state">
+        <h2>{{menu_head}}</h2>
+        Записи: <b>{{menu_head}}</b>
+        &nbsp; / &nbsp; Записи: <b><все></b>
+    </div>
+    <!-- /Breadcrumds -->
+
+    <form id="benefitsForm" name="benefitsForm" method="post" action="">
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="/admin/benefits/add" title="создать преимущество" class="btMajor"><img src="{{image_path}}add.png" alt="[создать преимущество]"><span>Новый</span></a>
+            </div>
+            <div class="toolBarContainer count" style="float:right">
+                <span class="btDumb">Записей: <b>{{benefits_count}}</b></span>
+            </div>
+        </div>
+
+        <!-- Table Grid -->
+        <table width="100%" cellpadding="0" cellspacing="1">
+            <tr>
+                <th class="actionCol">Действия</th>
+                <th class="orderCol">#</th>
+                <th style="text-align:left">Показывать на сайте</th>
+                <th style="text-align:left">Заголовок</th>
+                <th style="text-align:left">Изображение</th>
+            </tr>
+            {{#benefits}}
+            <tr{{#even}} class="odd"{{/even}}>
+                <td class="actionCol" valign="top" nowrap>
+                    <a href="/admin/benefits/edit/{{id}}" title="изменить"><img src="{{image_path}}edit.png" alt="изменить" /></a>
+                    <a href="#" title="удалить" class="delete-benefit" rel="{{id}}"><img alt="удалить" src="{{image_path}}delete.png"></a>
+                </td>
+                <td class="orderCol" valign="top">
+                    {{id}}
+                </td>
+                <td valign="top">
+                    {{#status}}<a href="#" title="Не отображать" class="status-benefit" rel="{{id}}"><input type="hidden" name="status[{{id}}]" value="0"><img src="{{image_path}}status_1.png" alt="on" title="Не отображать"></a>{{/status}}
+                    {{^status}}<a href="#" title="Отображать" class="status-benefit" rel="{{id}}"><input type="hidden" name="status[{{id}}]" value="1"><img src="{{image_path}}status_0.png" alt="off" title="Отображать"></a>{{/status}}
+                </td>
+                <td valign="top">
+                    {{title}}
+                </td>
+                <td>
+                    {{#image}}<img src="/{{benefits_image_path}}{{image}}">{{/image}}
+                </td>
+            </tr>
+            {{/benefits}}
+        </table>
+        <!-- /Table Grid -->
+
+        {{!Если нет преимуществ - выводим сообщение}}
+        {{^benefits_count}}
+        <div class="empty">[ нет преимуществ ]</div>
+        {{/benefits_count}}
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="/admin/benefits/add" title="создать преимущество" class="btMajor"><img src="{{image_path}}add.png" alt="[создать преимущество]"><span>Новый</span></a>
+            </div>
+            <div class="toolBarContainer count" style="float:right">
+                <span class="btDumb">Записей: <b>{{benefits_count}}</b></span>
+            </div>
+        </div>
+
+        <input type="hidden" name="work_id" id="work_id" value="0">
+        <input type="hidden" name="action" id="action" value="0">
+    </form>
+
+</div>

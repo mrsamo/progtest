@@ -1,0 +1,314 @@
+<div class="spcForm">
+    <!-- Breadcrumds -->
+    <div class="state">
+        <h2>{{#editable}}Редактирование {{#is_object}}объекта{{/is_object}}{{#is_category}}категории{{/is_category}}{{/editable}}{{^editable}}{{#is_object}}Новый объект{{/is_object}}{{#is_category}}Новая категория{{/is_category}}{{/editable}}</h2>
+        Записи: <b>{{#root}}{{name}}{{/root}}</b>
+        {{#editable}}
+        {{#lvl2}}
+        &nbsp; / &nbsp; Записи: <b>{{#parent}}{{name}}{{/parent}}</b>
+        {{/lvl2}}
+        &nbsp; / &nbsp; Запись: <b>{{#cur_category}}{{name}}{{/cur_category}}</b>
+        {{/editable}}
+        {{^editable}}
+        {{#lvl1}}
+        &nbsp; / &nbsp; Записи: <b>{{#cur_category}}{{name}}{{/cur_category}}</b>
+        {{/lvl1}}
+        &nbsp; / &nbsp; Запись: <b><новая></b>
+        {{/editable}}
+    </div>
+    <!-- /Breadcrumds -->
+
+    <form id="add_{{#is_object}}object{{/is_object}}{{#is_category}}category{{/is_category}}_form" name="{{^editable}}add{{/editable}}{{#editable}}edit{{/editable}}_catalog_form" method="post" action="{{^editable}}/admin/catalog/open/{{#cur_category}}{{id}}{{/cur_category}}{{/editable}}" enctype="multipart/form-data">
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="#" title="сохранить" class="submit-module"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+            </div>
+            <div class="toolBarContainer">
+                <a href="/admin/catalog/open/{{#editable}}{{#parent}}{{id}}{{/parent}}{{/editable}}{{^editable}}{{#cur_category}}{{id}}{{/cur_category}}{{/editable}}" title="завершить без сохранения" class="btNeutral"><img src="{{image_path}}up1.png" alt="[завершить без сохранения]"/><span>Вернуться назад</span></a>
+            </div>
+        </div>
+
+        <div id="error1">
+            <span>При заполнении формы были допущены следующие ошибки:</span>
+            <ul></ul>
+        </div>
+
+        <div class="formFieldsWarapper">
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Идентификатор записи:</div>
+                <div class="efText">
+                    <input type="text" name="auto_id" id="auto_id" value="{{#editable}}{{#cur_category}}{{id}}{{/cur_category}}{{/editable}}{{^editable}}&lt;auto&gt;{{/editable}}" disabled/>
+                    <input type="hidden" name="id" id="id" value="{{#editable}}{{#cur_category}}{{id}}{{/cur_category}}{{/editable}}">
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Показывать на сайте*:</div>
+                <div class="efChoice">
+                    <select name="status" id="status">
+                        <option value="0">Нет</option>
+                        <option value="1"{{#editable}}{{#cur_category}}{{#status}} selected{{/status}}{{/cur_category}}{{/editable}}>Да</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Порядок*:</div>
+                <div class="efText">
+                    <input type="text" name="ord" id="ord" value="{{#editable}}{{#cur_category}}{{ord}}{{/cur_category}}{{/editable}}{{^editable}}999{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Название*:</div>
+                <div class="efText">
+                    <input type="text" name="name" id="name" value="{{#editable}}{{#cur_category}}{{name}}{{/cur_category}}{{/editable}}" />
+                </div>
+            </div>
+
+            {{! Поля для типа недвижимости - объект}}
+            {{#is_object}}
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Цена (в руб)*:</div>
+                <div class="efText">
+                    <input type="text" name="price" id="price" maxlength="10" value="{{#editable}}{{#cur_category}}{{price}}{{/cur_category}}{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Город*:</div>
+                <div class="efText">
+                    <input type="text" name="city" id="city" value="{{#editable}}{{#cur_category}}{{city}}{{/cur_category}}{{/editable}}" />
+                </div>
+            </div>
+            {{^is_business}}
+            {{#is_country}}
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Тракт:</div>
+                <div class="efText">
+                    <input type="text" name="tract" id="tract" value="{{#editable}}{{#cur_category}}{{tract}}{{/cur_category}}{{/editable}}" />
+                </div>
+            </div>
+            {{/is_country}}
+            
+            {{#is_commercial}}
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Улица:</div>
+                <div class="efText">
+                    <input type="text" name="street" id="street" value="{{#editable}}{{#cur_category}}{{street}}{{/cur_category}}{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Номер дома:</div>
+                <div class="efText">
+                    <input type="text" name="house" id="house" value="{{#editable}}{{#cur_category}}{{house}}{{/cur_category}}{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Корпус:</div>
+                <div class="efText">
+                    <input type="text" name="corps" id="corps" value="{{#editable}}{{#cur_category}}{{corps}}{{/cur_category}}{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Этаж*:</div>
+                <div class="efText">
+                    <input type="text" name="floor" id="floor" maxlength="2" value="{{#editable}}{{#cur_category}}{{floor}}{{/cur_category}}{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Площадь (кв.м)*:</div>
+                <div class="efText">
+                    <input type="text" name="square" id="square" value="{{#editable}}{{#cur_category}}{{square}}{{/cur_category}}{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>
+            {{/is_commercial}}
+            
+            {{#is_city}}
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Улица:</div>
+                <div class="efText">
+                    <input type="text" name="street" id="street" value="{{#editable}}{{#cur_category}}{{street}}{{/cur_category}}{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Номер дома:</div>
+                <div class="efText">
+                    <input type="text" name="house" id="house" value="{{#editable}}{{#cur_category}}{{house}}{{/cur_category}}{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Корпус:</div>
+                <div class="efText">
+                    <input type="text" name="corps" id="corps" value="{{#editable}}{{#cur_category}}{{corps}}{{/cur_category}}{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Этаж*:</div>
+                <div class="efText">
+                    <input type="text" name="floor" id="floor" maxlength="2" value="{{#editable}}{{#cur_category}}{{floor}}{{/cur_category}}{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Этажность:</div>
+                <div class="efText">
+                    <input type="text" name="floors" id="floors" maxlength="2" value="{{#editable}}{{#cur_category}}{{floors}}{{/cur_category}}{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Общая площадь (кв.м)*:</div>
+                <div class="efText">
+                    <input type="text" name="square" id="square" value="{{#editable}}{{#cur_category}}{{square}}{{/cur_category}}{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>  
+            {{/is_city}}
+            
+            {{#is_country}}
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Этажность:</div>
+                <div class="efText">
+                    <input type="text" name="floors" id="floors" maxlength="2" value="{{#editable}}{{#cur_category}}{{floors}}{{/cur_category}}{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>            
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Общая площадь строения (кв.м)*:</div>
+                <div class="efText">
+                    <input type="text" name="square" id="square" value="{{#editable}}{{#cur_category}}{{square}}{{/cur_category}}{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Общая площадь участка (Га)*:</div>
+                <div class="efText">
+                    <input type="text" name="square_2" id="square_2" value="{{#editable}}{{#cur_category}}{{square_2}}{{/cur_category}}{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>            
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Количество комнат*:</div>
+                <div class="efText">
+                    <input type="text" name="rooms" id="rooms" maxlength="2" value="{{#editable}}{{#cur_category}}{{rooms}}{{/cur_category}}{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>
+            {{/is_country}}
+            
+            {{#is_city}}
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Количество комнат*:</div>
+                <div class="efText">
+                    <input type="text" name="rooms" id="rooms" maxlength="2" value="{{#editable}}{{#cur_category}}{{rooms}}{{/cur_category}}{{/editable}}" style="width: 100px;"/>
+                </div>
+            </div>
+            {{/is_city}}
+            {{/is_business}}
+            
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Изображение (формат файла: <b>jpg</b>, <b>png</b> или <b>gif</b>):</div>
+                <div class="efImage">
+                    <input name="image" id="image" type="file" size="50">
+                    {{!Если идет редактирование и есть изображение - выводим его и чекбокс для удаления}}
+                    {{#cur_category}}
+                    {{#image}}
+                    <img src="/{{cart_images_dir}}{{image}}">
+                    <input name="del_image" id="del_image" type="checkbox" class="checkbox"> Удалить при сохранении
+                    {{/image}}
+                    {{/cur_category}}
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Виртуальный тур (ссылка, например: http://yandex.ru):</div>
+                <div class="efText">
+                    <input type="text" name="virtour" id="virtour" value="{{#editable}}{{#cur_category}}{{virtour}}{{/cur_category}}{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Данные:</div>
+                <div class="efMulti">
+                    <textarea style="width:100%" name="data" id="data" class="ckeditor">{{#editable}}{{#cur_category}}{{{data}}}{{/cur_category}}{{/editable}}</textarea>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Описание:</div>
+                <div class="efMulti">
+                    <textarea style="width:100%" name="content" id="content" class="ckeditor">{{#editable}}{{#cur_category}}{{{content}}}{{/cur_category}}{{/editable}}</textarea>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Карта (код карты из сервиса Яндекс.Карты):</div>
+                <div class="efMulti">
+                    <textarea name="map" id="map" style="width:100%">{{#editable}}{{#cur_category}}{{map}}{{/cur_category}}{{/editable}}</textarea>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Горящее предложение:</div>
+                <div class="efMulti">
+                    <input name="hot_status" id="hot_status" type="checkbox" class="checkbox"{{#editable}}{{#cur_category}}{{#hot_status}} checked{{/hot_status}}{{/cur_category}}{{/editable}}> <label for="hot_status" style="cursor:pointer;">Да</label>
+                </div>
+            </div>
+            
+            {{^is_business}}            
+            {{#is_country}}
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Ипотека возможна:</div>
+                <div class="efMulti">
+                    <input name="hypothec_status" id="hypothec_status" type="checkbox" class="checkbox"{{#editable}}{{#cur_category}}{{#hypothec_status}} checked{{/hypothec_status}}{{/cur_category}}{{/editable}}> <label for="hypothec_status" style="cursor:pointer;">Да</label>
+                </div>
+            </div>
+            {{/is_country}}
+            {{#is_city}}
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Ипотека возможна:</div>
+                <div class="efMulti">
+                    <input name="hypothec_status" id="hypothec_status" type="checkbox" class="checkbox"{{#editable}}{{#cur_category}}{{#hypothec_status}} checked{{/hypothec_status}}{{/cur_category}}{{/editable}}> <label for="hypothec_status" style="cursor:pointer;">Да</label>
+                </div>
+            </div>
+            {{/is_city}}
+            
+            {{/is_business}}
+            {{/is_object}}
+
+            {{! Поля для категории }}
+            {{#is_category}}
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Описание:</div>
+                <div class="efMulti">
+                    <textarea style="width:100%" name="content" id="content" class="ckeditor">{{#editable}}{{#cur_category}}{{{content}}}{{/cur_category}}{{/editable}}</textarea>
+                </div>
+            </div>
+            {{/is_category}}
+        </div>
+        
+        <h2 class="formFieldsWarapper-h2_meta">Мета тэги</h2>
+        <div class="formFieldsWarapper">
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Заголовок страницы (тег &lt;title&gt;):</div>
+                <div class="efText">
+                    <input type="text" name="meta_title" id="meta_title" value="{{#editable}}{{#cur_category}}{{meta_title}}{{/cur_category}}{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Ключевые слова (meta keywords):</div>
+                <div class="efMulti">
+                    <textarea name="meta_keywords" id="meta_keywords" style="width:100%">{{#editable}}{{#cur_category}}{{meta_keywords}}{{/cur_category}}{{/editable}}</textarea>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Описание (meta description):</div>
+                <div class="efMulti">
+                    <textarea name="meta_description" id="meta_description" style="width:100%">{{#editable}}{{#cur_category}}{{meta_description}}{{/cur_category}}{{/editable}}</textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="error2">
+            <span>При заполнении формы были допущены ошибки. Список ошибок можно увидеть в начале страницы.</span>
+        </div>
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="#" title="сохранить" class="submit-module"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+            </div>
+            <div class="toolBarContainer">
+                <a href="/admin/catalog/open/{{#editable}}{{#parent}}{{id}}{{/parent}}{{/editable}}{{^editable}}{{#cur_category}}{{id}}{{/cur_category}}{{/editable}}" title="завершить без сохранения" class="btNeutral"><img src="{{image_path}}up1.png" alt="[завершить без сохранения]"/><span>Вернуться назад</span></a>
+            </div>
+        </div>
+
+        <input type="hidden" name="action" id="action" value="{{#editable}}update_{{#is_object}}object{{/is_object}}{{#is_category}}category{{/is_category}}{{/editable}}{{^editable}}create_{{#is_object}}object{{/is_object}}{{#is_category}}category{{/is_category}}{{/editable}}">
+    </form>
+</div>

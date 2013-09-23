@@ -1,0 +1,57 @@
+{{#is_product_cart}}
+<div class="b-popup" id="order-popup">
+    <div class="b-popup__title">Заявка на товар</div>
+    <div class="b-popup__close"></div>
+    <form name="form_request" id="form_request" method="post" class="b-form">
+        <p class="b-form__desc">
+            Вы можете отправить заявку на интересующий товар. Наши менеджеры свяжутся с вами в ближайшее время
+        </p>
+        <table class="l-form">
+            <tr>
+                <td colspan="2">
+                    <input name="fio" id="fio" type="text" placeholder="Ваше имя*">
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <input name="email" id="email" type="text" placeholder="E-mail*">
+                </td>
+                <td valign="top" width="50%">
+                    <input name="phone" id="phone" type="text" placeholder="Телефон">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <select name="product" id="product">
+                        {{#request_products}}
+                        <option value="{{name}}">{{name}}</option>
+                        {{/request_products}}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea name="message" name="message" placeholder="Комментарий к заказу"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="b-form__agree"><input name="agree_private" id="agree_request_private" value="1" class="b-nice-checkbox" type="checkbox"> - <label for="agree_private">я согласен на предоставление персональных данных</label></div>
+                    <div class="error__agree_private"></div>
+                </td>
+            </tr>
+        </table>
+        <div class="b-qaptcha b-qaptcha_feedback">                                    
+            <div class="b-qaptcha__text">
+                Разблокируйте<br>форму
+            </div>
+            <div class="qaptcha"></div>
+        </div>
+        <div class="b-form__submit">
+            <input name="submit_btn" id="submit_request_btn" type="submit" value="Отправить">
+            <div class="b-popup-process_feedback">Отправляется запрос...</div>
+            <div class="b-popup-complete_feedback">Ваша заявка успешно отправлена<br><span>окошко закроется автоматически</span></div>
+        </div>
+    </form>
+</div>
+{{/is_product_cart}}

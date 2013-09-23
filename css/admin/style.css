@@ -1,0 +1,359 @@
+html,body {margin:0; padding:0; height:100%; font:normal 0.91em Arial; color:#000; background:#fff; position:relative;}
+table, table td, table th, table tr {margin:0; padding:0; border-collapse:collapse; font-size:100%;}
+img {border:0; margin:0; padding:0;}
+a {color: #0066cc; text-decoration: none;}
+a:hover {text-decoration: underline;}
+a.current {color: black;font-weight: bold;}
+p {margin:10px 0 10px 0; padding:0 0 0 0;}
+ul {margin:0; padding:0;}
+ol {margin:0; padding:0;}
+ul li {margin:0; list-style:none; position:relative;}
+ol li {margin:0; position:relative;}
+form, fieldset, label {border:0 solid; margin:0; padding:0;}
+h3 {font-size:13pt; font-weight:bold;}
+h1 {font-size:24pt;}
+.rel {position:relative;}
+.abs {position:absolute;}
+.centered {display:none; position:fixed; top:45%; left:50%}
+* html .centered  {position:absolute;
+top: expression( ( (document.documentElement.clientHeight||document.body.clientHeight) / 2 - this.offsetHeight / 2 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );}
+.error {width:335px; font-size:100%; font-family:Tahoma; margin-left:40px; color:#111; padding:3px;}
+.ml60 .toolBarContainer {float:none; margin-top:20px}
+.delim {margin-right:20px}
+.hyperlinkCont {float:left;}
+.hyperlinkCont img {position:relative; z-index:1}
+.hyperlinkCont a {position:relative; z-index:1}
+.displayBlock {display:block !important; z-index:10000}
+.hyperlink {display:none; left:26px; opacity:0.95; border:2px solid #2F5C71; margin-left:1px; background:#134963; color:#fff; font-weight:bold; padding: 0 10px;height:40px; line-height:40px}
+* html .hyperlink {left:36px;}
+
+#all {
+	text-align:left;
+	min-width:1000px;
+	height:100%;
+}
+*html #all {position:relative; width:expression((document.documentElement.clientWidth||document.body.clientWidth)<1000?'1000px':'auto')}
+#mainMenu {margin-top:25px; font-size:90%}
+#otherMenu {margin-top:20px; font-size:100%}
+#all .header {m1argin:0 20px 0 20px; padding:8px 0; z-index:100; b1order-top:#000 3px solid; background:#000; color:#fff; overflow:hidden; h1eight:63px}
+#all .header div {float:left}
+#all .head-bl {left:0px; bottom:0px; background:url(../imgs/head-bl.jpg) no-repeat; width:18px; height:17px; z-index:110}
+#all .head-br {right:0px; bottom:0px; background:url(../imgs/head-br.jpg) no-repeat; width:18px; height:17px; z-index:110}
+
+.sitedef {font-size:21px; padding-top:4px;}
+.sitedef a {color:#fff}
+.stats {font-size:11px; padding:0 0 0 30px; margin-top:0px; /*width:249px;*/ border-left:1px solid #bbb}
+.stats span {color:#fff; font-weight:bold}
+.stats img {position:relative; top:2px}
+.stats p {line-height:60%;color:#ccc}
+
+.logo {font-size:11px; padding:0 0 0 30px; margin-top:0px; width:249px; border-left:1px solid #bbb}
+.logo span {color:#fff; font-weight:bold}
+.logo img {position:relative; top:2px}
+.logo p {line-height:60%;color:#ccc}
+
+.manage {right:30px; top:15px; float:none}
+.manage span {float:right;margin:5px 0 0 6px;font-family:arial;font-size:11px}
+.manage a {float:right;display:block; padding:4px 7px;color:#fff !important}
+.manage a:hover {background:#444}
+.note {position:absolute; top:3px; left:-80px}
+.clear {clear:both; font-size:0}
+.wrapperMain {width:100%;border-top:#2f5c71 3px solid; m1argin-top:10px}
+.wrapperMain .spacer {display:none; background:#134963; height:20px}
+.mainGrid {m1argin:0 20px;}
+.navTd {width:200px; vertical-align:top; margin:0; padding:15px 30px; background:#f7f7f7}
+.navigation {}
+.wrapperGrid {vertical-align:top}
+
+dl {color:#444}
+dt {display:block; padding:7px; color:#888; font-weight:bold}
+dd {background:#FFF; margin-top:1px}
+dd a {display:block; padding:7px}
+dd a:hover {background:#DDD}
+dd.sel {background:#EEE; border:1px solid #FFF}
+dd.sel a {padding:6px}
+
+.visible {display:block}
+
+input {border:1px solid #999}
+.serviceLayer {top:100px; right:400px; width:200px; height:100px; border-top:#2f5c71 3px solid; background:#134963; color:#fff}
+.serviceLayer h2 {font-size:100%; width:140px; height:20px; margin:20% auto}
+
+.admin {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-style: normal; font-weight: bold; color: #993300; text-decoration: none }
+.admmain { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: bold; color: #000000; text-decoration: none }
+.admsmall { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: normal; color: #000000; text-decoration: none }
+.admsmall:hover { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: normal; color: #000000; text-decoration: underline }
+.subModeText {PADDING-LEFT: 5px; FONT: 11px tahoma; COLOR: #000000}
+
+.th {height:25px;background-color:#cEd5e2;color:#000;}
+.notifier {border:1px solid #bbb; padding:10px; margin:10px 0 10px 0}
+
+.treeContent {margin-left:5px; font-size:120% !important;}
+.treeContent a {font-size:120% !important;}
+.treeContent label {font-size:120% !important;}
+
+
+.group.lvl1 {font-size:110% !important; font-weight:bold; color:#000}
+
+.btCritical {display:block;padding:3px;text-align:center}
+.btNeutral {float:left;padding:3px;text-align:center}
+.btMajor {float:left;padding:3px;text-align:center}
+.btDumb {float:left;padding:3px;text-align:center;font:11px verdana;color:#888}
+.toolBar {height:43px;padding:10px 0;margin:10px 20px 10px 20px;border:none}
+.toolBarContainer {float:left;border:1px solid #ddd;margin-right:10px;background:#f5f5ff;border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px}
+.toolBarContainer a {display:block; padding:3px 15px}
+.toolBarContainer a:hover {background:#fafaff}
+.toolBarContainer span {float:right;margin:8px 0 0 10px}
+.toolBarContainer.count {float:right;background:#ffe;border:none;margin:0;padding:0;line-height:100%}
+.toolBarContainer.count span {margin:0;padding:5px 10px;border:1px solid #eee}
+.filterContainer {border-top:1px solid #bbb;border-bottom:1px solid #ccc;background-color:#fafafa;border-left:6px solid #bbb;;margin-bottom:10px}
+.filterContainer table {width:100%}
+.filterContainer table td {width:25%;padding:5px !important}
+.filterContainer table tr.odd td {background:#f5f5f5;border-bottom:1px solid #888}
+.filterContainer table td.left {border-right:1px solid #ddd;}
+.filterContainer table tr.odd td.label {background:#f5f5f5;text-align:right}
+.filterContainer table td.label {text-align:right}
+.filterContainer table tr.odd td.control {background:#ddd}
+.filterContainer table td.control {border-right:1px solid #bbb}
+.filterContainer table th {font-weight:bold !important;color:#888;font-size:10px !important;text-align:left}
+
+.spcGrid table {background:#fff;border-top:1px solid #333}
+.spcGrid table th {b1ackground:#333;color:#000;b1order-right:2px solid #fff;border-bottom:2px solid #666;font-size:15px;font-family:arial;padding:15px 10px 2px;font-weight:bold}
+.spcGrid table .orderCol {width:15px;text-align:center;background:#f7f7ff !important}
+.spcGrid table .actionCol {width:110px;b1ackground:#667;text-align:left;b1order:none;padding:5px 0;}
+.spcGrid table th.actionCol {ba1ckground:#fff;color:#fff;b1order:none}
+.spcGrid table td.actionCol {backgro1und:#fafaff;b1order-right:1px solid #ddd}
+.spcGrid table .odd td.actionCol {background:none;#f5f5ff}
+.spcGrid table td {padding:5px 10px;border-bottom:1px solid #eee}
+.spcGrid table td.confirm {background-color:#c6fdc0 !important;}
+.spcGrid td.hover, .spcGrid table tbody tr:hover td {background: #fafaff}
+.spcGrid table tr.odd td {background:#fafafa}
+.spcGrid table tr.odd:hover td {background:#f6f6ff}
+.spcGrid table input {border:1px solid #ccc;padding:3px;font-size:10px;}
+.spcGrid .message {background:#0099cc;padding:10px 18px;border:1px solid #bbb;color:#fff}
+
+
+.spcForm, .spcGrid {z-index:50; float:none; margin-top:-11px}
+.spcGrid {margin:0 30px}
+.spcGrid .toolBar {margin:0}
+.spcForm {font-size:12px}
+.spcForm .formFieldsWarapper {border:1px solid #eee;border-top:none;margin:0 20px}
+.spcForm .fieldWrapper {margin:0 1px;padding:10px 20px;border-top:1px solid #eee;overflow:hidden;}
+.spcForm .fieldWrapper.odd {background:#fafafa}
+.spcForm .fieldWrapper:hover {background-color: #f5f5ff}
+.state {color:#888;padding:10px; margin:0 10px;font-size:14px}
+.state h2 {padding:0;margin:13px 0 0;font-family:tahoma;font-weight:normal;font-size:24px;color:#000}
+.state b {color:#de7536}
+.spcGrid .state {margin:-11px 0 10px -10px}
+h3 {padding:0 0 2px 0;margin:4px 0 0;font-size:15px; border-bottom:2px solid #999}
+.spcForm .eLabel {color:#000;font-family:verdana!important;font-size:13px!important;padding:5px !important;font-weight:normal !important}
+.eLabel__left {float:left;width:250px;}
+.spcForm .eLabel b {color:red;}
+.spcForm .efImageLabel {color:#000;font-size:12px;padding:5px}
+.spcForm .efImage {margin-bottom:1px;padding:0 0 5px 5px}
+.spcForm .efImage input {height:25px;border:1px solid #ccc;width:450px;padding:3px}
+.spcForm .efImage input.checkbox {width:10px;height:10px;}
+.spcForm .efImage img {display:block;margin: 10px 10px;}
+.spcForm .efImageLabel input {border:none;width:15px;height:15px}
+.spcForm .efText {margin-bottom:1px;padding:0 0 5px 5px;}
+.efText__right {float:left;}
+.spcForm .efText input {border:1px solid #ccc;width:350px;padding:3px;font-size:12px;}
+.spcForm .efText input.short {width:150px;}
+.spcForm .efHyper {margin-bottom:1px;padding:0 5px 5px 5px;}
+.spcForm .efMulti {margin-bottom:1px;padding:0 0 5px 5px;}
+.spcForm .efMulti textarea {border:1px solid #ccc; font-size:12px !important;padding:3px;width:450px;height:120px;}
+.spcForm .efChoice {margin-bottom:1px;padding:0 0 5px 5px}
+.spcForm .efChoice select {border:1px solid #bbb;padding:3px}
+.spcForm .efRadio {}
+.spcForm .efControl {border:1px solid #aaa;color:#22e;padding:2px;margin-left:5px}
+.spcForm label {cursor:default}
+.spcForm .fieldHint {padding:2px 5px;background:#ffe;border:1px solid #ddd;width:350px}
+
+.sort a {border:1px solid #999;background:#fff;padding:0 2px}
+.sort a#this {background:#bbb;color:#fff;border-color:#888}
+
+.legend {background:#ffe;border:1px solid #aaa;margin:10px;padding:10px;color:#555}
+.legend, .legend * {font-size:9px}
+
+.spcForm .eLabel, .spcForm .efImageLabel {color:#000;font-size:100%; font-weight:bold; padding:5px 5px 5px 25px}
+
+div.grippie {
+background:#EEEEEE url(../imgs/grippie.png) no-repeat scroll center 2px;
+border-color:#DDDDDD;
+border-style:solid;
+border-width:0pt 1px 1px;
+cursor:s-resize;
+height:9px;
+overflow:hidden;
+}
+.resizable-textarea textarea {
+display:block;
+margin-bottom:0pt;
+width:95%;
+height: 20%;
+}
+.tmpLoader {visibility:hidden; height:0; width:0; overflow:hidden; position:absolute;}
+.imgContainer {width:250px; left:100px; top:-20px}
+.imgContainer img {border:1px solid #CCCCCC}
+
+.theta {width:210px; text-align:right; float:right; margin:10px 0 20px 0; padding-right:65px}
+.theta img {position:absolute; right:40px}
+
+
+.addLink {font-size:80%; text-decoration:none}
+.addLink:hover {text-decoration:none}
+.addLink img {position:relative; top:8px}
+
+.modal {position:absolute; z-index:1000000; width:600px; height:700px; display:none; overflow:auto; top:30%; left:30%}
+
+div.jqDrag {cursor: move;}
+
+/* jqmModal dialog CSS courtesy of;
+  Brice Burgess <bhb@iceburg.net> */
+
+div.jqmDialog {
+  display: none;
+    
+    position: fixed;
+    top: 17%;
+    left: 50%;
+    
+    margin-left: -200px;
+  width: 400px;
+
+  overflow: hidden;
+  font-family:verdana,tahoma,helvetica;
+}
+
+/* Fixed posistioning emulation for IE6
+     Star selector used to hide definition from browsers other than IE6
+     For valid CSS, use a conditional include instead */
+* html div.jqmDialog {
+     position: absolute;
+     top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');
+}
+
+
+/* [[[ Title / Top Classes ]]] */
+div.jqmdTC { 
+  background: #d5ff84 url(../imgs/sprite.gif) repeat-x 0px -82px; 
+  color: #528c00;
+  padding: 7px 22px 5px 5px;
+  font-family:"sans serif",verdana,tahoma,helvetica;
+  font-weight: bold;
+  * zoom: 1;
+}
+div.jqmdTL { background:  url(../imgs/sprite.gif) no-repeat 0px -41px; padding-left: 3px;}
+div.jqmdTR { background: url(../imgs/sprite.gif) no-repeat right 0px; padding-right: 3px; * zoom: 1;}
+
+
+/* [[[ Body / Message Classes ]]] */
+div.jqmdBC {
+  background: url(../imgs/bc.gif) repeat-x center bottom;
+  padding: 7px 7px 7px;
+  height: 480px;
+  overflow: auto;
+}
+.jqmdBC  div {margin-left:10px;}
+.jqmdBC  div div {margin-left:20px;}
+div.jqmdBL { background: url(../imgs/bl.gif) no-repeat left bottom; padding-left: 7px; }
+div.jqmdBR { background: url(../imgs/br.gif) no-repeat right bottom; padding-right: 7px; * zoom: 1 }
+
+div.jqmdMSG { color: #317895; }
+
+
+/* [[[ Button classes ]]] */
+input.jqmdX {
+  position: absolute;
+  right: 7px;
+  top: 4px;
+  padding: 0 0 0 19px;
+  height: 19px;
+  width: 0px;
+  background: url(../imgs/close.gif) no-repeat top left;
+  overflow: hidden;
+}
+input.jqmdXFocus {background-position: bottom left; outline: none;}
+
+div.jqmdBC button, div.jqmdBC input[type="submit"] {
+  margin: 8px 10px 4px 10px;
+  color: #777;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+div.jqmDialog input:focus, div.jqmDialog input.iefocus { background-color: #eaffc3; }
+
+.loginForm {width:400px;color:#fff;background:#f5f5f5;text-align:left}
+.loginForm h3 {font-size:185.11%; background:#333;padding:8px 0 6px 30px; font-weight:normal}
+.loginForm .center {padding:20px 30px;overflow:hidden;}
+.loginForm .input {margin-bottom:10px}
+.loginForm .input input {width:330px;padding:3px;font-size:115%}
+.loginForm label {font-size:105.11%; color:#000}
+.loginForm .loginSbm {width:90px; float:right; margin-top:15px; height:30px !important; font-size:100%; b1ackground:#fff}
+
+/* ��������� ���� ��� ���� */
+.jqmWindow {display: none;position: fixed;top: 17%;left: 50%;margin-left: -300px;width: 600px;background-color: #EEE;color: #333;border: 1px solid black;padding: 12px;}
+.jqmOverlay {background-color: #000;}
+* html .jqmWindow {position: absolute;top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');}
+
+
+
+
+
+
+div.menu .active {font-weight:bold;}
+
+/* VALIDATION */
+.spcForm input.invalid {border:1px solid red;}
+.spcForm textarea.invalid {border:1px solid red;}
+.spcForm select.invalid {border:1px solid red;}
+#error1, #error2 {border:1px solid red;margin:0 20px 20px 20px;padding:5px;background-color:#ffbaaf;display:none;}
+#error2{margin-top:20px;}
+#error1 span, #error2 span {font-weight:bold;}
+#error1 ul {margin:5px;}
+div.empty {text-align:center;padding:10px;background-color:#f3f3f3;color:#777;}
+
+/* CACHE */
+.sitemap-generate-proccess {}
+.sitemap-generate-final {margin:10px 0;display:none;}
+
+/* NAVIGATION */
+.menu{width: 220px;padding: 0 0 1em 0;margin-bottom:20px;}
+.menu a{color: #0066cc;text-decoration: none;position:relative;outline: none;border:1px solid #f5f5f5;padding:0px 3px 1px;z-index:2;}
+.menu a:hover{text-decoration: underline;}
+.menu a:active, a:focus{/*background-color:#f4f4f4;*/}
+.menu a.current, .menu a.selected {color: #df8e5d;font-weight: bold;background-color: #fff;border:1px solid #e2e2e2;}
+.menu li {zoom:1}
+.menu ul li {line-height: 1.2em;}
+.menu ul ul li ul {}
+.menu ul li ul li {margin: 0 0 0 1.2em;border-left: 1px solid silver;}
+.menu li.last {border: none;}
+
+.menu span {text-decoration: none;display: block;margin: 0 0 0 1.2em;background-color: transparent;border: solid silver;border-width: 0 0 1px 1px;}
+.menu span a {display: block;position: relative;top: .95em;background-color: #f7f7f7;margin: 0 0 .2em .7em;padding: 0 0.3em;}
+
+.menu .marker {border-color:  transparent transparent  transparent gray;border-style: solid;border-width: .25em 0 .25em .5em;margin: .35em .25em 0 0;float: left;width: 0px;height: 0px;line-height: 0px;}
+.menu .marker.open {border-color: gray transparent transparent transparent;border-width: .5em .25em 0 .25em;}
+
+/* MESSAGE */
+/*div#message {margin-top:75px;margin-right:10px;padding:10px;z-index:9999;}
+div#message div {background-color:#b6f57a;color:#000;opacity:.85;filter:alpha(opacity=85);zoom:1;width:235px;height:55px;padding:10px;margin-top:5px;margin-bottom:5px;font-family:Tahoma, Arial, Helvetica, sans-serif;font-size:12px;text-align:left;display:none;-moz-border-radius:5px;-webkit-border-radius:5px;}
+div#message div.error {background-color:#f57aa8 !important;color:#000;opacity:.85;filter:alpha(opacity=85);zoom:1;width:235px;height:55px;padding:10px;margin-top:5px;margin-bottom:5px;font-family:Tahoma, Arial, Helvetica, sans-serif;font-size:12px;text-align:left;display:none;-moz-border-radius: 	5px;-webkit-border-radius:5px;}
+
+/** Special IE6 Style Positioning **/
+/*div.ie6 {position:absolute;}
+div.ie6.top-right {right:auto;bottom:auto;left:expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );top:expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );}
+/** Normal Style Positions **/
+/*body > div#message {position:fixed;}
+body > div#message.top-right {right:0px;top:0px;}*/
+
+.ui-anim-basic {left:344px;position:absolute;top:3px;display:none;}
+
+.formFieldsWarapper-h2_meta {
+    margin: 25px 0 10px 20px;
+    color: #000;
+    font-family: tahoma;
+    font-size: 18px;
+    font-weight: normal;
+}

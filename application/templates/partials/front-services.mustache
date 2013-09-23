@@ -1,0 +1,22 @@
+{{#sliderservices_exists}}
+<div class="b-service">
+    <h2 class="b-service__title">
+        <a href="#" class="b-service__title__text">Сервисное обслуживание и поставка запасных частей</a>
+    </h2>
+    <div class="b-service__clip">
+        <div class="b-service__items-wrap">
+            <div class="b-service__items">
+                {{#sliderservices}}
+                <span class="b-service__items__item">
+                    {{#link}}<a href="{{link}}" target="_blank">{{/link}}<img alt="{{name}}" class="b-service__items__item__img" src="{{sliderservices_images_dir}}{{image}}">{{#link}}</a>{{/link}}
+                </span>
+                {{/sliderservices}}
+            </div>
+        </div>
+    </div>
+    {{#sliderservices_controls}}
+    <div class="b-service__action b-service__action_prev"></div>
+    <div class="b-service__action b-service__action_next"></div>
+    {{/sliderservices_controls}}
+</div>
+{{/sliderservices_exists}}

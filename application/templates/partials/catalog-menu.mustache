@@ -1,0 +1,42 @@
+{{#is_equipment_cart}}
+<div class="b-category-menu">
+    {{#menu_catalog}}
+    <div class="b-category-menu__group{{#open}} b-category-menu__group_open{{/open}}">
+        <a href="/equipment/{{id}}" class="b-category-menu__group__title">{{name}}</a>
+        {{#childrens_2_exists}}
+        {{#childrens_2}}
+        <div class="b-category-menu__group__subgroup{{#open_2}} b-category-menu__group__subgroup_open{{/open_2}}">
+            <div class="b-category-menu__group__subgroup__title">
+                <a href="/equipment/{{id}}" class="e-category-menu__group__subgroup__title">{{name}}</a>
+            </div>
+            {{#childrens_3_exists}}
+            <div class="b-category-menu__group__subgroup__content">                
+                {{#childrens_3}}
+                <a href="/equipment/view/{{id}}" class="b-category-menu__group__subgroup__content__lnk{{#active}} b-category-menu__group__subgroup__content__lnk_active{{/active}}">{{name}}</a>
+                {{/childrens_3}}
+            </div>
+            {{/childrens_3_exists}}
+        </div>
+        {{/childrens_2}}
+        {{/childrens_2_exists}}
+    </div>
+    {{/menu_catalog}}
+</div>
+{{/is_equipment_cart}}
+
+{{#is_spares_cart}}
+<div class="b-products-filter">
+    {{#menu_catalog}}
+    <div class="b-products-filter__item{{#open}} b-products-filter__item_active{{/open}}">
+        <a href="#" class="b-products-filter__item__title">{{name}}</a>
+        {{#childrens_2_exists}}
+        <div class="b-products-filter__item__content">
+            {{#childrens_2}}
+            <a href="/spares/{{#is_product}}view/{{/is_product}}{{id}}" class="b-products-filter__item__content__lnk{{#active}} b-products-filter__item__content__lnk_active{{/active}}">{{name}}</a>
+            {{/childrens_2}}
+        </div>
+        {{/childrens_2_exists}}
+    </div>
+    {{/menu_catalog}}
+</div>
+{{/is_spares_cart}}

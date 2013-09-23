@@ -1,0 +1,21 @@
+{{#partners_exists}}
+<h2 class="b-main-partners__title">
+    <span class="b-main-partners__title__text">Наши основные партнеры</span>
+</h2>
+<div class="b-main-partners__items">
+    {{#partners}}
+    <div class="b-main-partners__items__item">
+        <div class="l-main-partners__items__item__cover">
+            <img alt="{{name}}" src="{{partners_images_dir}}{{image}}" class="b-main-partners__items__item__cover" />
+        </div>
+        <div class="l-main-partners__items__item__link">
+            {{#link}}<a href="{{link}}" class="b-main-partners__items__item__link">{{/link}}
+                {{^link}}<div class="b-main-partners__items__item__link">{{/link}}
+                    {{name}}
+                    {{^link}}</div>{{/link}}
+                {{#link}}</a>{{/link}}
+        </div>
+    </div>
+    {{/partners}}
+</div>
+{{/partners_exists}}

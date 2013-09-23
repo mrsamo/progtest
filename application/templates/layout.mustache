@@ -1,0 +1,25 @@
+{{>header}}
+
+<div class="l-container">
+    <div class="l-content">
+        {{#is_front}}
+        {{>page-front}}
+        {{/is_front}}
+        
+        {{#is_catalog}}
+        {{>page-catalog}}
+        {{/is_catalog}}
+        
+        {{#is_content}}
+        {{>page-content}}
+        {{/is_content}}
+        
+        {{#is_news}}
+        {{>page-news}}
+        {{/is_news}}
+        
+    </div>
+</div>
+</div>
+
+{{>footer}}

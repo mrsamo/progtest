@@ -1,0 +1,108 @@
+{{#cur_category}}<h1 class="b-page-title">{{name}}</h1>{{/cur_category}}
+<div class="b-tabbed">
+    <div class="b-tabbed-head">
+        {{#filters_tabs}}
+        <a href="#catalog-{{id}}" class="b-tabbed-head-item{{#active}} b-tabbed-head-item_active{{/active}}" data-cat-id="{{id}}"><span>{{name}}</span></a>
+        {{/filters_tabs}}
+    </div>
+    <div class="b-tabbed-pages">
+        {{#filters_tabs}}
+        <div class="b-tabbed-pages-item" id="catalog-{{id}}"{{#active}} style="display: block;"{{/active}}>
+             <form name="filter-form-{{id}}" id="filter-form-{{id}}" class="b-filter" method="POST">
+                <div class="b-filter-row">
+                    <div class="b-filter-row-col">
+                        <select name="filter_city" id="filter-city" class="b-filter-city">
+                            <option value="">Выберите город</option>
+                            {{#cities}}
+                            <option value="{{city}}"{{#active}} selected{{/active}}>{{city}}</option>
+                            {{/cities}}
+                        </select>
+                    </div>
+                </div>
+                <div class="b-filter-row">
+                    <div class="b-filter-row-col b-filter-rooms">
+                        <label>Комнат:</label>
+                        <select name="filter-rooms" id="filter-rooms" class="b-filter-rooms-select">
+                            <option value="">-</option>
+                            {{#rooms}}
+                            <option value="{{room}}"{{#active}} selected{{/active}}>{{room}}</option>
+                            {{/rooms}}
+                        </select>
+                    </div>
+                    <div class="b-filter-row-col b-filter-floor">
+                        {{^is_country}}
+                        <label>Этаж:</label>
+                        <select name="filter_floor_compare" id="filter-floor-compare" class="b-filter-floor-select">
+                            {{#floor_compare}}
+                            <option value="{{id}}"{{#active}} selected{{/active}}>{{compare}}</option>
+                            {{/floor_compare}}
+                        </select>
+                        <input type="text" name="filter_floor" id="filter-floor" class="js-integer" value="{{#def_filters}}{{floor}}{{/def_filters}}">
+                        {{/is_country}}
+                        {{#is_country}}&nbsp;{{/is_country}}
+                    </div>
+                    {{^is_commercial}}
+                    <div class="b-filter-row-col b-filter-floors">
+                        <label class="i-block">Этажность:</label>
+                        <input type="text" name="filter_floors_1" id="filter-floors-1" class="js-integer" placeholder="от" maxlength="3" value="{{#def_filters}}{{floors_1}}{{/def_filters}}">
+                        -
+                        <input type="text" name="filter_floors_2" id="filter-floors-2" class="js-integer" placeholder="до" maxlength="3" value="{{#def_filters}}{{floors_2}}{{/def_filters}}">
+                    </div>
+                    {{/is_commercial}}
+                </div>
+                <div class="b-filter-row">
+                    <div class="b-filter-row-col">
+                        <div class="b-slider-container">
+                            <label>Цена млн. руб.:</label>
+                            <div class="b-filter-slider">
+                                <div class="b-filter-slider-element"></div>
+                                <input type="text" name="filter_price_1" id="filter-price-1" value="{{#def_filters}}{{price_1}}{{/def_filters}}{{^def_filters}}{{min_price}}{{/def_filters}}" data-min="{{min_price}}" class="b-filter-slider-min" maxlength="8">
+                                <input type="text" name="filter_price_2" id="filter-price-2" value="{{#def_filters}}{{price_2}}{{/def_filters}}{{^def_filters}}{{max_price}}{{/def_filters}}" data-max="{{max_price}}" class="b-filter-slider-max" maxlength="8">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="b-filter-row-col b-filter-space">
+                        <label class="i-block">Общая площадь (м<sup>2</sup>):</label>
+                        <input type="text" name="filter_square_1" id="filter-square-1" class="js-integer" placeholder="от" value="{{#def_filters}}{{square_1}}{{/def_filters}}">
+                        -
+                        <input type="text" name="filter_square_2" id="filter-square-2" class="js-integer" placeholder="до" value="{{#def_filters}}{{square_2}}{{/def_filters}}">
+                    </div>
+                </div>
+                <div class="b-filter-submit">
+                    <input type="submit" name="submit_filter" id="submit_filter" value="Подобрать объект">
+                    {{#active}}
+                    {{#filter_works}}
+                    <a href="/catalog/{{id}}" class="b-tabbed-pages-item-reset">Сбросить фильтр</a>
+                    {{/filter_works}}
+                    {{/active}}
+                </div>
+            </form>
+        </div>
+        {{/filters_tabs}}        
+    </div>
+</div>
+
+<div class="b-catalog">
+    {{#products}}
+    <a href="/catalog/view/{{id}}" class="b-catalog-item">
+        {{#hypothec_status}}<span class="b-catalog-item-icon b-catalog-item-icon_mortgage"></span>{{/hypothec_status}}
+        <img alt="{{name}}" src="/{{cat_images_dir}}{{#image}}{{image}}{{/image}}{{^image}}no-photo.png{{/image}}" class="b-catalog-item-back">
+        <span class="b-catalog-item-desc">
+            {{name}}<br>
+            {{#tract}}{{tract}}{{/tract}}
+        </span>
+    </a>
+    {{/products}}
+    {{^products}}
+    {{#filter_works}}
+    <div class="b-catalog-empty">Объектов, подходящих под условие фильтра, не обнаружено</div>
+    {{/filter_works}}
+    {{^filter_works}}
+    <div class="b-catalog-empty">Категория не содержит объектов</div>
+    {{/filter_works}}
+    {{/products}}
+    <span class="b-catalog-item b-catalog-item_empty"></span>
+    <span class="b-catalog-item b-catalog-item_empty"></span>
+</div>
+{{{page_links}}}
+</div>

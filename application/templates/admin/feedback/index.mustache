@@ -1,0 +1,65 @@
+<div class="spcGrid">
+    <!-- Breadcrumds -->
+    <div class="state">
+	<h2>{{menu_head}}</h2>
+	Записи: <b>{{menu_head}}</b>
+	&nbsp; / &nbsp; Записи: <b><все></b>
+    </div>
+    <!-- /Breadcrumds -->
+
+    <form id="feedbackForm" name="feedbackForm" method="post" action="">
+
+	<div class="toolBar">
+	    <div class="toolBarContainer count" style="float:right">
+		<span class="btDumb">Записей: <b>{{feedback_count}}</b></span>
+	    </div>
+	</div>
+
+	<!-- Table Grid -->
+	<table width="100%" cellpadding="0" cellspacing="1">
+	    <tr>
+		<th class="orderCol">#</th>
+		<th style="text-align:left">ФИО</th>
+		<th style="text-align:left">Контактные данные</th>
+		<th style="text-align:left">Комментарий</th>
+		<th style="text-align:left">Дата отправки</th>
+	    </tr>
+	    {{#feedbacks}}
+	    <tr{{#even}} class="odd"{{/even}}>
+		<td class="orderCol">
+		    <a href="#" title="удалить" class="delete-row" rel="{{id}}"><img alt="удалить" src="{{image_path}}delete.png"></a>
+		</td>
+		<td>
+		    {{fio}}
+		</td>
+		<td>
+		    Телефон: {{phone}}
+                    {{#email}}<br>Email: {{email}}{{/email}}
+		</td>
+		<td>
+		    {{{message}}}
+		</td>
+		<td>
+		    {{human_date}}
+		</td>
+	    </tr>
+	    {{/feedbacks}}
+	</table>
+	<!-- /Table Grid -->
+
+	{{!Если нет сообщений - выводим сообщение}}
+	{{^feedback_count}}
+	<div class="empty">[ нет сообщений ]</div>
+	{{/feedback_count}}
+
+	<div class="toolBar">
+	    <div class="toolBarContainer count" style="float:right">
+		<span class="btDumb">Записей: <b>{{feedback_count}}</b></span>
+	    </div>
+	</div>
+
+	<input type="hidden" name="work_id" id="work_id" value="0"/>
+	<input type="hidden" name="action" id="action" value="0"/>
+    </form>
+
+</div>

@@ -1,0 +1,59 @@
+<div class="l-2col">
+    <div class="l-2col-col1">
+        {{^is_product}}
+        {{>form-reqbuysell}}
+        {{/is_product}}
+        {{#is_product}}
+        {{>form-reqbuy}}
+        {{/is_product}}
+        {{#one_banner}}
+        {{#link}}<a href="{{link}}" class="b-banner">{{/link}}
+            {{^link}}<div class="b-banner">{{/link}}
+                {{#is_image}}
+                <img alt="" src="/{{banners_dir}}{{source}}">
+                {{/is_image}}
+
+                {{#is_flash}}
+                <object type="application/x-shockwave-flash" data="/{{banners_dir}}{{source}}" height="{{height}}" width="{{width}}">
+                    <param name="movie" value="/{{banners_dir}}{{source}}"/>
+                    <param name="wmode" value="transparent"/>
+                </object>
+                {{/is_flash}}
+
+                {{#is_text}}
+                {{{source}}}
+                {{/is_text}}
+                {{^link}}</div>{{/link}}
+            {{#link}}</a>{{/link}}
+        {{/one_banner}}
+
+        {{>mortgage-block}}
+
+        {{#one_banner}}
+        {{#link}}<a href="{{link}}" class="b-banner">{{/link}}
+            {{^link}}<div class="b-banner">{{/link}}
+                {{#is_image}}
+                <img alt="" src="/{{banners_dir}}{{source}}">
+                {{/is_image}}
+
+                {{#is_flash}}
+                <object type="application/x-shockwave-flash" data="/{{banners_dir}}{{source}}" height="{{height}}" width="{{width}}">
+                    <param name="movie" value="/{{banners_dir}}{{source}}"/>
+                    <param name="wmode" value="transparent"/>
+                </object>
+                {{/is_flash}}
+
+                {{#is_text}}
+                {{{source}}}
+                {{/is_text}}
+                {{^link}}</div>{{/link}}
+            {{#link}}</a>{{/link}}
+        {{/one_banner}}
+
+        {{>one-benefit}}        
+    </div>
+    <div class="l-2col-col2">
+        {{>breadcrumb}}
+        {{>content}}
+    </div>
+</div>

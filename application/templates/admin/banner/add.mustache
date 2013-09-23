@@ -1,0 +1,123 @@
+<div class="spcForm">
+    <!-- Breadcrumds -->
+    <div class="state">
+	<h2>{{#editable}}Редактирование баннера{{/editable}}{{^editable}}Добавление баннера{{/editable}}</h2>
+	Записи: <b>Баннеры</b>
+	{{#editable}}
+	&nbsp; / &nbsp; Запись: <b>Баннер ID {{#cur_banner}}{{id}}{{/cur_banner}}</b>
+	{{/editable}}
+	{{^editable}}
+	&nbsp; / &nbsp; Запись: <b><новая></b>
+	{{/editable}}
+    </div>
+    <!-- /Breadcrumds -->
+
+
+    <form id="addBannerForm" name="addBannerForm" method="post" action="{{^editable}}/admin/banner{{/editable}}" enctype="multipart/form-data">
+
+	<div class="toolBar">
+	    <div class="toolBarContainer">
+		<a href="#" title="сохранить" class="save_banner"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+	    </div>
+	    <div class="toolBarContainer">
+		<a href="/admin/banner" title="завершить без сохранения" class="btNeutral"><img src="{{image_path}}up1.png" alt="[завершить без сохранения]"/><span>Вернуться назад</span></a>
+	    </div>
+	</div>
+
+	<div id="error1">
+	    <span>При заполнении формы были допущены следующие ошибки:</span>
+	    <ul><li id="wysiwyg_error" style="display:none;">Введите текст</li></ul>
+	</div>
+
+	<div class="formFieldsWarapper">
+	    <div class="fieldWrapper odd">
+		<div class="eLabel">Идентификатор записи:</div>
+		<div class="efText">
+		    <input type="text" name="auto_id" id="auto_id" size="50" value="{{#editable}}{{#cur_banner}}{{id}}{{/cur_banner}}{{/editable}}{{^editable}}&lt;auto&gt;{{/editable}}" disabled />
+		    <input type="hidden" name="id" id="id" value="{{#editable}}{{#cur_banner}}{{id}}{{/cur_banner}}{{/editable}}"/>
+		</div>
+	    </div>
+	    <div class="fieldWrapper">
+		<div class="eLabel">Тип баннера*:</div>
+		<div class="efText">
+		    <select name="type" id="type" {{#editable}}disabled{{/editable}}>
+			<option value="image"{{#editable}}{{#cur_banner}}{{#image}} selected{{/image}}{{^image}}{{^flash}}{{^text}} selected{{/text}}{{/flash}}{{/image}}{{/cur_banner}}{{/editable}}>Изображение</option>
+			<option value="flash"{{#editable}}{{#cur_banner}}{{#flash}} selected{{/flash}}{{/cur_banner}}{{/editable}}>Flash</option>
+			<option value="text"{{#editable}}{{#cur_banner}}{{#text}} selected{{/text}}{{/cur_banner}}{{/editable}}>Текст</option>
+		    </select>
+		    {{#editable}}<input type="hidden" name="type" value="{{#cur_banner}}{{type}}{{/cur_banner}}"/>{{/editable}}
+		</div>
+	    </div>
+	    <div class="fieldWrapper odd" rel="image">
+		<div class="eLabel">Ссылка (с http://):</div>
+		<div class="efText">
+		    <input type="text" name="link" id="link" size="50" value="{{#editable}}{{#cur_banner}}{{link}}{{/cur_banner}}{{/editable}}" class="short" />
+		</div>
+	    </div>
+	    <div class="fieldWrapper" rel="image">
+		<div class="eLabel">Баннер (формат файла: <b>jpg</b>, <b>png</b> или <b>gif</b>, рекомендуемая ширина 271px)*:</div>
+		<div class="efImage">
+		    <input name="image" id="image" type="file" size="50"/>
+		    {{!Если идет редактирование - выводим баннер}}
+		    {{#editable}}
+		    {{#cur_banner}}
+		    <img src="/{{banner_dir}}{{source}}"/>
+		    {{/cur_banner}}
+		    {{/editable}}
+		    <input type="hidden" name="no_img" id="no_img" value="0"/>
+		</div>
+	    </div>
+
+
+	    <div class="fieldWrapper odd" rel="flash">
+		<div class="eLabel">Ширина баннера, рекомендуемая 185px*:</div>
+		<div class="efText">
+		    <input type="text" name="width" id="width" size="50" value="{{#editable}}{{#cur_banner}}{{width}}{{/cur_banner}}{{/editable}}" class="short" />
+		</div>
+	    </div>
+	    <div class="fieldWrapper" rel="flash">
+		<div class="eLabel">Высота баннера*:</div>
+		<div class="efText">
+		    <input type="text" name="height" id="height" size="50" value="{{#editable}}{{#cur_banner}}{{height}}{{/cur_banner}}{{/editable}}" class="short" />
+		</div>
+	    </div>
+	    <div class="fieldWrapper odd" rel="flash">
+		<div class="eLabel">Баннер (формат файла: <b>swf</b>)*:</div>
+		<div class="efImage">
+		    <input name="flash" id="flash" type="file" size="50" /><br>
+			{{#editable}}
+			{{#cur_banner}}
+			<object type="application/x-shockwave-flash" data="/{{banner_dir}}{{source}}" height="{{height}}" width="{{width}}">
+			    <param name="movie" value="/{{banner_dir}}{{source}}"/>
+			    <param name="wmode" value="transparent"/>
+			</object>
+			{{/cur_banner}}
+			{{/editable}}
+			<input type="hidden" name="no_flash" id="no_flash" value="1"/>
+		</div>
+	    </div>
+	    <div class="fieldWrapper odd" rel="text">
+		<div class="eLabel">Текст:</div>
+		<div class="efMulti">
+		    <textarea style="width:100%" name="source" id="source" class="ckeditor">{{#editable}}{{#cur_banner}}{{{source}}}{{/cur_banner}}{{/editable}}</textarea>
+		</div>
+	    </div>
+	</div>
+
+	<div id="error2">
+	    <span>При заполнении формы были допущены ошибки. Список ошибок можно увидеть в начале страницы.</span>
+	</div>
+
+	<div class="toolBar">
+	    <div class="toolBarContainer">
+		<a href="#" title="сохранить" class="save_banner"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+	    </div>
+	    <div class="toolBarContainer">
+		<a href="/admin/banner" title="завершить без сохранения" class="btNeutral"><img src="{{image_path}}up1.png" alt="[завершить без сохранения]"/><span>Вернуться назад</span></a>
+	    </div>
+	</div>
+
+	<input type="hidden" name="action" id="action" value="{{#editable}}update{{/editable}}{{^editable}}create{{/editable}}"/>
+    </form>
+
+</div>

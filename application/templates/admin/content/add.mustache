@@ -1,0 +1,125 @@
+<div class="spcForm">
+    <!-- Breadcrumds -->
+    <div class="state">
+        <h2>{{#editable}}Редактирование страницы{{/editable}}{{^editable}}Новая страница{{/editable}}</h2>
+        Записи: <b>{{#root}}{{name}}{{/root}}</b>
+        {{#editable}}
+        {{#lvl2}}
+        &nbsp; / &nbsp; Записи: <b>{{#parent}}{{name}}{{/parent}}</b>
+        {{/lvl2}}
+        &nbsp; / &nbsp; Запись: <b>{{#cur_page}}{{name}}{{/cur_page}}</b>
+        {{/editable}}
+        {{^editable}}
+        {{#lvl1}}
+        &nbsp; / &nbsp; Записи: <b>{{#cur_page}}{{name}}{{/cur_page}}</b>
+        &nbsp; / &nbsp; Запись: <b><новая></b>
+        {{/lvl1}}
+        {{^lvl1}}
+        &nbsp; / &nbsp; Запись: <b><новая></b>
+        {{/lvl1}}
+        {{/editable}}
+    </div>
+    <!-- /Breadcrumds -->
+
+
+    <form id="addContentForm" name="addContentForm" method="post" action="{{^editable}}/admin/content/open/{{#cur_page}}{{id}}{{/cur_page}}{{/editable}}">
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="#" title="сохранить" class="save_content"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+            </div>
+            <div class="toolBarContainer">
+                <a href="/admin/content/open/{{#editable}}{{#parent}}{{id}}{{/parent}}{{/editable}}{{^editable}}{{#cur_page}}{{id}}{{/cur_page}}{{/editable}}" title="завершить без сохранения" class="btNeutral"><img src="{{image_path}}up1.png" alt="[завершить без сохранения]"/><span>Вернуться назад</span></a>
+            </div>
+        </div>
+
+        <div id="error1">
+            <span>При заполнении формы были допущены следующие ошибки:</span>
+            <ul></ul>
+        </div>
+
+        <div class="formFieldsWarapper">
+            <div class="fieldWrapper odd">
+                <div class="eLabel">Идентификатор записи:</div>
+                <div class="efText">
+                    <input type="text" name="auto_id" id="auto_id" size="50" value="{{#editable}}{{#cur_page}}{{id}}{{/cur_page}}{{/editable}}{{^editable}}&lt;auto&gt;{{/editable}}" disabled/>
+                    <input type="hidden" name="id" id="id" value="{{#editable}}{{#cur_page}}{{id}}{{/cur_page}}{{/editable}}">
+                </div>
+            </div>
+            <div class="fieldWrapper">
+                <div class="eLabel">Показывать на сайте*:</div>
+                <div class="efChoice">
+                    <select name="status" id="status">
+                        <option value="0">Нет</option>
+                        <option value="1"{{#editable}}{{#cur_page}}{{#status}} selected{{/status}}{{/cur_page}}{{/editable}}>Да</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fieldWrapper odd">
+                <div class="eLabel">Порядок*:</div>
+                <div class="efText">
+                    <input type="text" name="ord" id="ord" size="50" value="{{#editable}}{{#cur_page}}{{ord}}{{/cur_page}}{{/editable}}{{^editable}}999{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper">
+                <div class="eLabel">Название*:</div>
+                <div class="efText">
+                    <input type="text" name="name" id="name" size="50" value="{{#editable}}{{#cur_page}}{{name}}{{/cur_page}}{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper odd">
+                <div class="eLabel">Содержание:</div>
+                <div class="efMulti">
+                    <textarea style="width:100%" name="content" id="content" class="ckeditor">{{#editable}}{{#cur_page}}{{{content}}}{{/cur_page}}{{/editable}}</textarea>
+                </div>
+            </div>
+            <div class="fieldWrapper">
+                <div class="eLabel">Вербальный путь*:</div>
+                <div class="efText">
+                    <input type="text" name="url" id="url" size="50" value="{{#editable}}{{#cur_page}}{{url}}{{/cur_page}}{{/editable}}" {{#cur_page}}{{#module_id}} readonly{{/module_id}}{{#is_index}} readonly{{/is_index}}{{/cur_page}}>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="formFieldsWarapper-h2_meta">Мета тэги</h2>
+        <div class="formFieldsWarapper">
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Заголовок страницы (тег &lt;title&gt;):</div>
+                <div class="efText">
+                    <input type="text" name="meta_title" id="meta_title" value="{{#editable}}{{#cur_page}}{{meta_title}}{{/cur_page}}{{/editable}}" />
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Ключевые слова (meta keywords):</div>
+                <div class="efMulti">
+                    <textarea name="meta_keywords" id="meta_keywords" style="width:100%">{{#editable}}{{#cur_page}}{{meta_keywords}}{{/cur_page}}{{/editable}}</textarea>
+                </div>
+            </div>
+            <div class="fieldWrapper{{#even}} odd{{/even}}">
+                <div class="eLabel">Описание (meta description):</div>
+                <div class="efMulti">
+                    <textarea name="meta_description" id="meta_description" style="width:100%">{{#editable}}{{#cur_page}}{{meta_description}}{{/cur_page}}{{/editable}}</textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="error2">
+            <span>При заполнении формы были допущены ошибки. Список ошибок можно увидеть в начале страницы.</span>
+        </div>
+
+        <div class="toolBar">
+            <div class="toolBarContainer">
+                <a href="#" title="сохранить" class="save_content"><img src="{{image_path}}ok.png" alt="[сохранить]"><span>Сохранить</span></a>
+            </div>
+            <div class="toolBarContainer">
+                <a href="/admin/content/open/{{#editable}}{{#parent}}{{id}}{{/parent}}{{/editable}}{{^editable}}{{#cur_page}}{{id}}{{/cur_page}}{{/editable}}" title="завершить без сохранения" class="btNeutral"><img src="{{image_path}}up1.png" alt="[завершить без сохранения]"/><span>Вернуться назад</span></a>
+            </div>
+        </div>
+
+        <input type="hidden" name="action" id="action" value="{{#editable}}update{{/editable}}{{^editable}}create{{/editable}}">
+    </form>
+
+    {{{ckeditor}}}
+
+</div>

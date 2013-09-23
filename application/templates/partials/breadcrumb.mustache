@@ -1,0 +1,17 @@
+<div class="b-breadcrumbs">
+    <a href="/" class="b-breadcrumbs-item">Главная</a> 
+    <span class="b-breadcrumbs-delimiter"></span>
+    {{#breadcrumbs}}
+    {{^last}}
+    {{#data}}
+    <a href="/{{url}}" class="b-breadcrumbs-item">{{title}}</a> 
+    <span class="b-breadcrumbs-delimiter"></span>
+    {{/data}}
+    {{/last}}
+    {{#last}}
+    {{#data}}
+    <span class="b-breadcrumbs-item b-breadcrumbs-item_active">{{title}}</span>
+    {{/data}}
+    {{/last}}
+    {{/breadcrumbs}}
+</div><!-- #breadcrumbs-->
