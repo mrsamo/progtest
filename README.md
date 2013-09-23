@@ -27,3 +27,8 @@
 - - - - - - - - - - - - - - - - -
 Использование имеющихся в Kohana хэлперов и библиотек.
 Сохранение coding style, рекомендованного разработчиками Kohana (http://kohanaframework.org/3.0/guide/kohana/conventions)
+
+База Данных
+- - - - - - - - - - - - - - - - -
+Dump БД разворачивается с помощью скрипта Sypex Dumper (http://sypex.net/)
+В папке sxd/backup лежит нужный файл
