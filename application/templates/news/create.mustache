@@ -1,0 +1,27 @@
+<h1>Создать новость</h1>
+        <p><a href="/news/list">Список новостей</a></p>
+<form action="/news/create" method="post" enctype="multipart/form-data">
+    <label>Заголовок: </label>
+    <input type="text" name="title" /><br/><br/>
+
+    <label>Анонс: </label>
+    <textarea type="text" name="short_article" ></textarea><br/><br/>
+
+    <label>Текст новости: </label>
+    <textarea type="text" name="article" ></textarea><br/><br/>
+
+    <label>Опубликовать: </label>
+    <select type="text" name="status" >
+        <option value="1">Да</option>
+        <option value="2">Нет</option>
+    </select><br/><br/>
+
+    <label>Картинка новости: </label>
+    <input type="file" name="img" /><br/><br/>
+
+
+    <input type="submit" value="Создать статью" />
+
+
+
+</form>
