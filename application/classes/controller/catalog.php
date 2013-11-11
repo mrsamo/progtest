@@ -1,18 +1,18 @@
 <?php
 
 /*
-	Контроллер директивы sait/catalog/...
+	пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ sait/catalog/...
 */
 
 class Controller_Catalog extends Controller_Auto
 {
-	public function action_index()
-	{
+    public function action_index()
+    {
 
-	}
+    }
 
-	public function action_view()
-	{
+    public function action_view()
+    {
 
-	}
+    }
 }
